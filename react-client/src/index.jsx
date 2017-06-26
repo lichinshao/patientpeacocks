@@ -37,7 +37,13 @@ class App extends React.Component {
   getEventful() {
     $.ajax({
       url: '/eventful',
-      type: 'GET',
+      data: JSON.stringify({
+        location: 'san francisco',
+        topic: 'music'
+      }),
+      type: 'POST',
+      contentType: 'application/json',
+     
       success: (item) => {
         console.log('ajax was successful at get request from Eventful') 
       }
@@ -67,3 +73,12 @@ class App extends React.Component {
 
 
 ReactDOM.render(<App/>, document.getElementById('app'));
+
+
+/* data: {
+        location: 'san francisco',
+        topic: 'music'
+      },
+      type: 'GET',
+      dataType: 'jsonp',
+*/
