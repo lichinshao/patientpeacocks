@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
+import Button from 'react-bootstrap/lib/Button';
+import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar'
 class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -20,8 +20,10 @@ class Search extends React.Component {
   render () {
     return (
       <div>
-        <button onClick = {this.reqEventful.bind(this)}>searchEventful</button>
-        <button onClick = {this.reqMeetUP.bind(this)}>searchMeetUp</button>
+      <ButtonToolbar>
+        <Button bsStyle="info" bsSize="small" onClick = {this.reqEventful.bind(this)}>searchEventful</Button>
+        <Button bsStyle="info" bsSize="small" onClick = {this.reqMeetUP.bind(this)}>searchMeetUp</Button>
+        </ButtonToolbar>
       </div>
     );
   }
