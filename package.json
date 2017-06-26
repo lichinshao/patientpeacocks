@@ -14,7 +14,7 @@
     "babel": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "body-parser": "^1.17.2",
-    "express": "^4.15.0",
+    "express": "^4.15.3",
     "jquery": "^3.2.1",
     "mongoose": "^4.9.6",
     "node": "0.0.0",
