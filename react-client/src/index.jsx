@@ -30,7 +30,7 @@ class App extends React.Component {
       },
       dataType: 'jsonp',
       success: (data) => {
-        this.setState({eventsBar: data.events.event, loaded: true});
+        this.setState({ eventsBar: data.events.event, loaded: true });
 
       },
       error: (err) => {
@@ -48,7 +48,7 @@ class App extends React.Component {
       }),
       type: 'POST',
       contentType: 'application/json',
-     
+
       success: (item) => {
         console.log('ajax was successful at get request from Eventful')
       }
@@ -68,7 +68,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-<<<<<<< HEAD
         <div className='titleContainer'>
           <PageHeader className='title'>Event Planner
             <small className='signup'>
@@ -80,26 +79,21 @@ class App extends React.Component {
           <CarouselPage />
         </div>
         <div>
+          <h5>Event Planner</h5>
           <Search eventful={this.getEventful.bind(this)} meetUp={this.getMeetup.bind(this)} />
+          {this.state.loaded ? <Mount events={this.state.eventsBar} /> : null}
         </div>
         <br></br>
         <div>
           <SearchList />
         </div>
-=======
-        <h5>Event Planner</h5>
-        <Search eventful = {this.getEventful.bind(this)} meetUp = {this.getMeetup.bind(this)}/>
-        {this.state.loaded ? <Mount events={this.state.eventsBar}/> : null}
->>>>>>> a2637d7dfb5f3b63c0fbee5b5625ddc0df138271
+
       </div>
     );
   }
 }
 
 
-<<<<<<< HEAD
-ReactDOM.render(<App />, document.getElementById('app'));
-=======
 ReactDOM.render(<App/>, document.getElementById('app'));
 
 
@@ -110,4 +104,3 @@ ReactDOM.render(<App/>, document.getElementById('app'));
       type: 'GET',
       dataType: 'jsonp',
 */
->>>>>>> a2637d7dfb5f3b63c0fbee5b5625ddc0df138271
