@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-<<<<<<< HEAD
 import Button from 'react-bootstrap/lib/Button';
 import CarouselPage from './components/Carousel.jsx';
 import Search from './components/Search.jsx';
@@ -9,11 +8,7 @@ import SignUp from './components/signUp.jsx';
 import SearchList from './components/searchList.jsx';
 // import Login from './components/Login.jsx'
 import PageHeader from 'react-bootstrap/lib/PageHeader';
-=======
-
-import Search from './components/Search.jsx';
 import Mount from './components/Mount.jsx';
->>>>>>> a2637d7dfb5f3b63c0fbee5b5625ddc0df138271
 
 class App extends React.Component {
   constructor(props) {
