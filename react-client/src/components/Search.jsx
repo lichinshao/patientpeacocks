@@ -5,32 +5,39 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      value: ''
     }
   }
 
 
-  reqEventful () {
+  reqEventful() {
     this.props.eventful();
   }
 
-  reqMeetUP () {
+  reqMeetUP() {
     this.props.meetUp();
   }
 
-  render () {
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.changeLocation(this.input.value);
+  }
+
+  render() {
     return (
       <div>
-      <ButtonToolbar>
-        <Button bsStyle="info" bsSize="small" onClick = {this.reqEventful.bind(this)}>searchEventful</Button>
-        <Button bsStyle="info" bsSize="small" onClick = {this.reqMeetUP.bind(this)}>searchMeetUp</Button>
+        <ButtonToolbar>
+          <form onSubmit = {this.handleSubmit.bind(this)}>
+            <label>
+              Location:
+              <input type="text" ref={(input) => this.input = input} />
+            </label>
+              <input type="submit" value="Submit" />
+          </form>
         </ButtonToolbar>
       </div>
     );
   }
-
-
-
-
 }
 
 export default Search;

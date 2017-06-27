@@ -15,42 +15,57 @@ class App extends React.Component {
     super(props);
     this.state = {
       eventsBar: [],
-      loaded: false
+      loaded: false,
+      location: 'san francisco'
     }
   }
 
-  componentDidMount() {
-    const appKey = 'app_key=CwcF9Lt3qkKh4gWB';
+  // componentDidMount() {
+  //   const appKey = 'app_key=CwcF9Lt3qkKh4gWB';
 
-    $.ajax({
-      method: "GET",
-      url: 'http://api.eventful.com/json/events/search?' + appKey + '&l=san+francisco&date=future',
-      headers: {
-        "Access-Control-Allow-Origin": "*"
-      },
-      dataType: 'jsonp',
-      success: (data) => {
-        this.setState({ eventsBar: data.events.event, loaded: true });
+  //   $.ajax({
+  //     method: "GET",
+  //     url: 'http://api.eventful.com/json/events/search?' + appKey + '&l=san+francisco&date=future',
+  //     headers: {
+  //       "Access-Control-Allow-Origin": "*"
+  //     },
+  //     dataType: 'jsonp',
+  //     success: (data) => {
+  //       this.setState({ eventsBar: data.events.event, loaded: true });
 
-      },
-      error: (err) => {
-        console.log(err)
-      }
-    });
+  //     },
+  //     error: (err) => {
+  //       console.log(err)
+  //     }
+  //   });
+  // }
+  
+  changeLocation(location) {
+    this.setState({
+      location: location
+    })
   }
 
-  getEventful() {
+  getEventful(category) {
     $.ajax({
       url: '/eventful',
       data: JSON.stringify({
-        location: 'san francisco',
-        topic: 'music'
+        location: this.state.location,
+        topic: category
       }),
       type: 'POST',
       contentType: 'application/json',
 
       success: (item) => {
-        console.log('ajax was successful at get request from Eventful')
+        console.log('ajax was successful at post request from Eventful');
+        this.setState({
+          eventsBar: item.slice(0,5)
+        })
+
+        // console.log(this.state.location, this.state.eventsBar);
+      },
+      error: () => {
+        console.log('ajax failed at post request from Eventful');
       }
     })
   }
@@ -78,16 +93,11 @@ class App extends React.Component {
         <div>
           <CarouselPage />
         </div>
-        <div>
-          <h5>Event Planner</h5>
-          <Search eventful={this.getEventful.bind(this)} meetUp={this.getMeetup.bind(this)} />
-          {this.state.loaded ? <Mount events={this.state.eventsBar} /> : null}
-        </div>
         <br></br>
         <div>
-          <SearchList />
+          <Search eventful={this.getEventful.bind(this)} changeLocation ={this.changeLocation.bind(this)} meetUp={this.getMeetup.bind(this)} />
+          <SearchList events={this.state.eventsBar} getEvents = {this.getEventful.bind(this)}/>
         </div>
-
       </div>
     );
   }
