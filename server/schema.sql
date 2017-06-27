@@ -1,6 +1,8 @@
 DROP DATABASE IF EXISTS events_app;
 
-/*psql -U postgres < server/schema.sql
+/* Use this one to connect
+psql -U postgres < server/schema.sql
+
 
 psql postgres -d events_app -f server/schema.sql*/
 CREATE DATABASE events_app;
@@ -34,3 +36,6 @@ CREATE TABLE usersEvents (
 
 INSERT INTO users (name, password) VALUES ('julia', 'hellowpass');
 INSERT INTO users (name, password) VALUES ('jey', 'mypassword');
+INSERT INTO users (name, password) VALUES ('kevin', 'heypass');
+
+INSERT INTO users (name, password) VALUES ('li', 'password123');
