@@ -13,6 +13,6 @@ const db = pg(connection);
 module.exports = db;
 
 
-db.query('select * from users').then((result)=> {
-  console.log(result);
-})
+// db.query('select * from users').then((result)=> {
+//   console.log(result);
+// })
