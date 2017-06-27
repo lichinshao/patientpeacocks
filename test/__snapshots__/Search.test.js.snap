@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: App should match its empty snapshot 1`] = `
+<div>
+  <div
+    className="btn-toolbar"
+    role="toolbar"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <label>
+        Location:
+        <input
+          type="text"
+        />
+      </label>
+      <input
+        type="submit"
+        value="Submit"
+      />
+    </form>
+  </div>
+</div>
+`;
