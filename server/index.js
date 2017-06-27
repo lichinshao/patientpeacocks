@@ -9,12 +9,14 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 
 app.post('/eventful', function (req, res) {
   // var data = JSON.parse(req.body);
+  console.log(req.body);
   var loc = '&l=' + req.body.location.split(' ').join('+');
-  var topic = '&q=' + req.body.topic; 
+
+  var topic = req.body.topic; 
   var app_key = 'app_key=CwcF9Lt3qkKh4gWB';
   var options = {
     method: 'GET',
-    url: 'http://api.eventful.com/json/events/search?' + app_key + topic + loc + '&date=future',
+    url: 'http://api.eventful.com/json/events/search?' + app_key + loc + '&date=future&categories=' + topic ,
     headers: {
       "Access-Control-Allow-Origin": "*"
     }
@@ -22,13 +24,13 @@ app.post('/eventful', function (req, res) {
   request(options, function(err, reponse, body) {
     if (err) {
       console.log(err);
-    };
-    var data = JSON.parse(body);
-    console.log('in request', data);
-
+    } else {
+      var data = JSON.parse(body);
+      var data = data.events.event;
+      res.send(data);
+    }
   })
-  
-  res.send('get successful at eventful');
+
 });
 
 app.get('/meetup', function(req, res) {
