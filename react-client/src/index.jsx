@@ -39,6 +39,7 @@ class App extends React.Component {
   //     }
   //   });
   // }
+  
   changeLocation(location) {
     this.setState({
       location: location
