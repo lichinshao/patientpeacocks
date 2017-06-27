@@ -27,12 +27,12 @@ class Search extends React.Component {
     return (
       <div>
         <ButtonToolbar>
-          <form onSubmit = {this.handleSubmit.bind(this)}>
+          <form onSubmit={this.handleSubmit.bind(this)}>
             <label>
               Location:
               <input type="text" ref={(input) => this.input = input} />
             </label>
-              <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" />
           </form>
         </ButtonToolbar>
       </div>
