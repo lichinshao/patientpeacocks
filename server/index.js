@@ -12,7 +12,7 @@ app.post('/eventful', function (req, res) {
   console.log(req.body);
   var loc = '&l=' + req.body.location.split(' ').join('+');
 
-  var topic = req.body.topic; 
+  var topic = req.body.topic;
   var app_key = 'app_key=CwcF9Lt3qkKh4gWB';
   var options = {
     method: 'GET',
@@ -33,6 +33,14 @@ app.post('/eventful', function (req, res) {
 
 });
 
+app.get('/eventful', function (req, res) {
+  models.users.get()
+  .then((result)=>{
+    console.log(result);
+    res.send(result);
+  })
+});
+
 app.get('/meetup', function(req, res) {
   res.send('get sucessful at meetup');
 });
@@ -46,7 +54,7 @@ app.listen(3000, function () {
 
 /*
 var loc = '&l=' + req.query.location.split(' ').join('+');
-  var topic = '&q=' + req.query.topic; 
+  var topic = '&q=' + req.query.topic;
   var options = {
     app_key: 'app_key=CwcF9Lt3qkKh4gWB',
     url: 'http://api.eventful.com/json/events/search?' + this.app_key + topic + loc + '&date=future',
