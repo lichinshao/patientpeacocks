@@ -15,6 +15,7 @@ DROP TABLE if exists events;
 CREATE TABLE users (
   id serial PRIMARY KEY,
   name VARCHAR(20) NOT NULL,
+  -- username VARCHAR(12) NOT NULL,
   password TEXT NOT NULL
 );
 
@@ -28,14 +29,15 @@ CREATE TABLE events (
 );
 
 
-CREATE TABLE usersEvents (
-  userId serial foreign key,
-  eventId serial foreign key
+-- CREATE TABLE usersEvents (
+--   userId serial foreign key,
+--   eventId serial foreign key
 
-);
+-- );
 
 INSERT INTO users (name, password) VALUES ('julia', 'hellowpass');
 INSERT INTO users (name, password) VALUES ('jey', 'mypassword');
 INSERT INTO users (name, password) VALUES ('kevin', 'heypass');
-
 INSERT INTO users (name, password) VALUES ('li', 'password123');
+INSERT INTO users (name, password) VALUES ('li', 'mypassword123');
+
