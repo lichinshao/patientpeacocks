@@ -6,7 +6,6 @@ psql dbname username
 
 psql -U userName dbName < server/schema.sql
 
-
 psql postgres -d events_app -f server/schema.sql*/
 CREATE DATABASE events_app;
 \c events_app;
@@ -14,15 +13,12 @@ CREATE DATABASE events_app;
 DROP TABLE if exists users;
 DROP TABLE if exists events;
 
-
 CREATE TABLE users (
   id serial PRIMARY KEY,
   name VARCHAR(20) NOT NULL,
-  -- username VARCHAR(12) NOT NULL,
   password TEXT NOT NULL
 );
 
--- dont forget to add user id, because only store event if user saved
 CREATE TABLE events (
   id serial PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
@@ -34,13 +30,10 @@ CREATE TABLE events (
 );
 
 
-
-CREATE TABLE usersEvents (
--- CREATE TABLE usersEvents (
---   userId serial foreign key,
---   eventId serial foreign key
-
--- );
+CREATE TABLE users_events (
+  userId serial REFERENCES users (id),
+  eventId serial REFERENCES events (id)
+);
 
 INSERT INTO users (name, password) VALUES ('julia', 'hellowpass');
 INSERT INTO users (name, password) VALUES ('jey', 'mypassword');

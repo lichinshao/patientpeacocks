@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
 var passport = require('passport');
+var models = require('./models');
 var LocalStrategy = require('passport-local').Strategy;
 var auth = require('passport-local-authenticate');
 var db = require('./database');
@@ -18,30 +19,6 @@ app.use(passport.session());
 
 app.use(express.static(__dirname + '/../react-client/dist'));
 
-
-
-  var topic = req.body.topic;
-  var app_key = 'app_key=CwcF9Lt3qkKh4gWB';
-  var options = {
-    method: 'GET',
-    url: 'http://api.eventful.com/json/events/search?' + app_key + loc + '&date=future&categories=' + topic ,
-    headers: {
-      "Access-Control-Allow-Origin": "*"
-    }
-  };
-  request(options, function(err, reponse, body) {
-    if (err) {
-      console.log(err);
-    } else {
-      // models.events.post(body)
-      // .then( (results) => {
-
-      // })
-      var data = JSON.parse(body);
-      var data = data.events.event;
-      res.send(data);
-    }
-  });
 var database = {
   username: 'david',
   password: 'sucks'
@@ -80,7 +57,7 @@ app.post('/register', function(req, res) {
     then((users) => {
       console.log(users);
       if (users.length) {
-        res.end('User already exists!'); 
+        res.end('User already exists!');
       } else {
         db.query(`INSERT INTO users (name, password) VALUES ('${req.body.name}', '${req.body.password}')`).
           then((users) => {
@@ -133,7 +110,7 @@ app.post('/login', passport.authenticate('local', {}),
 
   res.end('testing ');
 });
-  // passport.authenticate('local', { 
+  // passport.authenticate('local', {
   //                                 successRedirect: '/',
   //                                 failureRedirect: '/login',
   //                                 failureFlash: 'Invalid username or password.',
@@ -146,27 +123,27 @@ app.post('/eventful', function (req, res) {
   // var data = JSON.parse(req.body);
   console.log(req.body);
   var loc = '&l=' + req.body.location.split(' ').join('+');
-  var topic = req.body.topic; 
+  var topic = req.body.topic;
   var eventfulOptions = { method: 'GET',
   url: 'http://api.eventful.com/json/events/search',
   qs: { app_key: 'CwcF9Lt3qkKh4gWB', l: 'san francisco' },
-  headers: 
+  headers:
    { l: 'san%20francisco',
      q: topic,
      date: 'future' } };
 
 
      console.log('Going to promises');
-    
-    
+
+
     rp(eventfulOptions).then(function (data) {
       console.log('In the promises');
       return data;
     }).then(eventfulData => {
         var sumData = JSON.stringify('[' + eventfulData + ', ');
-        var meetupCategories = 
+        var meetupCategories =
         {
-          // meetup searches catagories by numbers 
+          // meetup searches catagories by numbers
           // it is weird but functional
           music: 21,
           food: 10,
@@ -177,12 +154,12 @@ app.post('/eventful', function (req, res) {
         var meetupOptions = {
         method: 'GET',
         url: 'https://api.meetup.com//find/groups',
-        qs: 
+        qs:
        { sign: 'true',
          key: '2771396637a6981749467c7663e19',
          category: meetupCategories[topic] }
         }
-        
+
         rp(meetupOptions).then(function (data) {
           sumData += JSON.stringify(data);
           res.send(sumData);
@@ -203,7 +180,7 @@ app.listen(3000, function () {
 
 /*
 var loc = '&l=' + req.query.location.split(' ').join('+');
-  var topic = '&q=' + req.query.topic; 
+  var topic = '&q=' + req.query.topic;
   var options = {
     app_key: 'app_key=CwcF9Lt3qkKh4gWB',
     url: 'http://api.eventful.com/json/events/search?' + this.app_key + topic + loc + '&date=future',
@@ -213,5 +190,5 @@ var loc = '&l=' + req.query.location.split(' ').join('+');
   };
   request(options, function(err, reponse, body) {
     console.log('in request', body);
-  }) */ 
+  }) */
 
