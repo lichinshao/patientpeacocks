@@ -4,8 +4,8 @@ const connection = {
   host: 'localhost',
   port: '',
   database: 'events_app',
-  user: '',
-  password: ''
+  user: 'postgres',
+  password: 'password'
 }
 
 const db = pg(connection);

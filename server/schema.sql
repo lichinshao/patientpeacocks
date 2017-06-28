@@ -35,7 +35,7 @@ CREATE TABLE events (
 
 
 
-CREATE TABLE usersEvents (
+-- CREATE TABLE usersEvents (
 -- CREATE TABLE usersEvents (
 --   userId serial foreign key,
 --   eventId serial foreign key

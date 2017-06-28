@@ -53,9 +53,10 @@ app.post('/register', function(req, res) {
   // auth.hash(req.body.password, function(err, hashed) {
   //   console.log(hashed.hash);
   //   console.log(hashed.salt);
+  // console.log(req.body);
     db.query(`select * from users where name = '${req.body.name}'`).
     then((users) => {
-      console.log(users);
+      console.log('this is the user', users);
       if (users.length) {
         res.end('User already exists!'); 
       } else {
