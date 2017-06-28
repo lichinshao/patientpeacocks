@@ -7,27 +7,30 @@ class Login extends React.Component {
     }
   }
 
-
-  reqEventful () {
-    this.props.eventful();
-  }
-
-  reqMeetUP () {
-    this.props.meetUp();
-  }
-
-  render () {
+  render() {
     return (
       <div>
-        <button onClick = {this.reqEventful.bind(this)}>searchEventful</button>
-        <button onClick = {this.reqMeetUP.bind(this)}>searchMeetUp</button>
+        <form method = "POST">
+          <h2>Login</h2>
+          <div>
+            <label>
+              Username:
+              <input id="username" type="text" name="username"/>>
+            </label>
+          </div>
+          <div>
+            <label>
+              Password:
+              <input id="password" type="password" name="password"/>>
+            </label>
+          </div>
+          <div>
+            <input type="submit" value="login"/>>
+          </div>
+        </form>
       </div>
     );
   }
-
-
-
-
 }
 
 export default Login;
