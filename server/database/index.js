@@ -2,7 +2,7 @@ const pg = require('pg-promise')();
 
 const connection = {
   host: 'localhost',
-  port: '',
+  port: '5432',
   database: 'events_app',
   user: 'postgres',
   password: 'password'
