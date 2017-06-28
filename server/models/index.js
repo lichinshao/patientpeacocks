@@ -25,7 +25,7 @@ module.exports.users = {
 module.exports.events = {
   // get all events for a specific user
   getUsersEvents: (username) => {
-    return db.query(`SELECT id from user where name = '${username}'`);
+    return db.query(`SELECT eventId from users_events WHERE userId = ( SELECT id from users where name = '${username}' )`);
   }
   // create an event for a user id based on username
   // subquery

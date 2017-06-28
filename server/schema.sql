@@ -51,3 +51,13 @@ INSERT INTO events (name, dateAndTime, category, url, description, location) VAL
 
 INSERT INTO events (name, dateAndTime, category, url, description, location) VALUES ('Kevins Pizza Cook Off!', '2017-07-01', 'food', 'http://sanfrancisco.eventful.com/events/', 'Dare to challenge Kevin in a pizza cook off!', 'Berkeley Blvd');
 
+
+INSERT INTO users_events (userId, eventId) VALUES (1, 2);
+INSERT INTO users_events (userId, eventId) VALUES (2, 1);
+INSERT INTO users_events (userId, eventId) VALUES (3, 1);
+INSERT INTO users_events (userId, eventId) VALUES (3, 2);
+INSERT INTO users_events (userId, eventId) VALUES (3, 3);
+
+
+
+
