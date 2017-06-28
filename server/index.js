@@ -27,6 +27,10 @@ app.post('/eventful', function (req, res) {
     if (err) {
       console.log(err);
     } else {
+      // models.events.post(body)
+      // .then( (results) => {
+
+      // })
       var data = JSON.parse(body);
       var data = data.events.event;
       res.send(data);
