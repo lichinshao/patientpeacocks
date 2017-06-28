@@ -19,6 +19,29 @@ app.use(passport.session());
 app.use(express.static(__dirname + '/../react-client/dist'));
 
 
+
+  var topic = req.body.topic;
+  var app_key = 'app_key=CwcF9Lt3qkKh4gWB';
+  var options = {
+    method: 'GET',
+    url: 'http://api.eventful.com/json/events/search?' + app_key + loc + '&date=future&categories=' + topic ,
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    }
+  };
+  request(options, function(err, reponse, body) {
+    if (err) {
+      console.log(err);
+    } else {
+      // models.events.post(body)
+      // .then( (results) => {
+
+      // })
+      var data = JSON.parse(body);
+      var data = data.events.event;
+      res.send(data);
+    }
+  });
 var database = {
   username: 'david',
   password: 'sucks'
