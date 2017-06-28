@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
 var passport = require('passport');
+var models = require('./models');
 var LocalStrategy = require('passport-local').Strategy;
 var auth = require('passport-local-authenticate');
 var db = require('./database');
@@ -17,7 +18,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(express.static(__dirname + '/../react-client/dist'));
-
 
 var database = {
   username: 'david',
@@ -57,7 +57,7 @@ app.post('/register', function(req, res) {
     then((users) => {
       console.log(users);
       if (users.length) {
-        res.end('User already exists!'); 
+        res.end('User already exists!');
       } else {
         db.query(`INSERT INTO users (name, password) VALUES ('${req.body.name}', '${req.body.password}')`).
           then((users) => {
@@ -110,7 +110,7 @@ app.post('/login', passport.authenticate('local', {}),
 
   res.end('testing ');
 });
-  // passport.authenticate('local', { 
+  // passport.authenticate('local', {
   //                                 successRedirect: '/',
   //                                 failureRedirect: '/login',
   //                                 failureFlash: 'Invalid username or password.',
@@ -128,7 +128,7 @@ app.post('/eventful', function (req, res) {
   var eventfulOptions = { method: 'GET',
   url: 'http://api.eventful.com/json/events/search',
   qs: { app_key: 'CwcF9Lt3qkKh4gWB', l: 'san francisco' },
-  headers: 
+  headers:
    { l: 'san%20francisco',
      q: topic,
      date: 'future' } };
@@ -156,7 +156,7 @@ app.post('/eventful', function (req, res) {
     }).then( () => {
         var meetupCategories = 
         {
-          // meetup searches catagories by numbers 
+          // meetup searches catagories by numbers
           // it is weird but functional
           music: 21,
           food: 10,
@@ -167,13 +167,13 @@ app.post('/eventful', function (req, res) {
 
         var meetupOptions = {
         method: 'GET',
-        url: 'https://api.meetup.com/find/groups',
-        qs: 
+        url: 'https://api.meetup.com//find/groups',
+        qs:
        { sign: 'true',
          key: '2771396637a6981749467c7663e19',
          category: meetupCategories[topic] }
         }
-        
+
         rp(meetupOptions).then(function (data) {
             if(data) {
               var eventData = JSON.parse(data).map((singleEvent) => {
@@ -213,3 +213,4 @@ app.post('', function (req, res) {
 app.listen(3000, function () {
   console.log('listening on port 3000!');
 });
+
