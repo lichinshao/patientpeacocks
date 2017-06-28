@@ -9,6 +9,9 @@ var db = require('./database');
 var app = express();
 var rp = require('request-promise');
 
+app.set('views', `${__dirname}/views`);
+app.set('view engine', 'ejs');
+
 app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -41,6 +44,10 @@ passport.use(new LocalStrategy({
     }
   }
 ));
+
+app.get('/register', function(req, res) {
+  res.render('register');
+})
 
 app.post('/register', function(req, res) {
   // auth.hash(req.body.password, function(err, hashed) {
@@ -79,6 +86,10 @@ app.post('/login', function(req, res) {
         res.end(JSON.stringify({message: 'user doesn\'t exist or password is incorrect'}));
       }
     })
+})
+
+app.get('/login', function(req, res) {
+  res.render('login');
 })
 
 
