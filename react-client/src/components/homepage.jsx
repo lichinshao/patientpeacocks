@@ -89,7 +89,8 @@ class homepage extends React.Component {
         <div className='titleContainer'>
           <PageHeader className='title'>Event Planner
             <small className='signup'>
-              <Button>Signup/Login</Button>
+                <Link to='/login'>Login</Link>
+                <Link to='/signUP'>Sign Up</Link>
             </small>
           </PageHeader>
         </div>
