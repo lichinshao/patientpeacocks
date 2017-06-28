@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
         <Router history={hashHistory}>
-          <Route path='/homePage' component={Home} />
+          <Route path='/' component={Home} />
           <Route path='/login' component={Login} />
           <Route path = '/signup' component = {signUp}/>
           <Route path ='/userpage' component = {userPage}/>
