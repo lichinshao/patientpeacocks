@@ -147,6 +147,7 @@ app.post('/eventful', function (req, res) {
   console.log(req.body);
   var loc = '&l=' + req.body.location.split(' ').join('+');
   var topic = req.body.topic; 
+  var returnData;
   var eventfulOptions = { method: 'GET',
   url: 'http://api.eventful.com/json/events/search',
   qs: { app_key: 'CwcF9Lt3qkKh4gWB', l: 'san francisco' },
@@ -155,15 +156,27 @@ app.post('/eventful', function (req, res) {
      q: topic,
      date: 'future' } };
 
-
-     console.log('Going to promises');
-    
-    
     rp(eventfulOptions).then(function (data) {
-      console.log('In the promises');
-      return data;
-    }).then(eventfulData => {
-        var sumData = JSON.stringify('[' + eventfulData + ', ');
+      var eventData;
+      if(data) {
+        eventData = JSON.parse(data).events.event.map((singleEvent) => {
+          var item = {
+            name: singleEvent.title,
+            time: singleEvent.start_time,
+            category: topic,
+            url: singleEvent.url,
+            //image: singleEvent.image,
+            description: singleEvent.description,
+            location: singleEvent.venue_address
+          };
+          return item;
+        })
+      }
+      eventData = JSON.stringify(eventData);
+      returnData += eventData.substring(0, eventData.length - 1);
+      res.write(eventData.substring(0, eventData.length - 1));
+      return;
+    }).then( () => {
         var meetupCategories = 
         {
           // meetup searches catagories by numbers 
@@ -174,9 +187,10 @@ app.post('/eventful', function (req, res) {
           books: 18,
           animals: 26,
         }
+
         var meetupOptions = {
         method: 'GET',
-        url: 'https://api.meetup.com//find/groups',
+        url: 'https://api.meetup.com/find/groups',
         qs: 
        { sign: 'true',
          key: '2771396637a6981749467c7663e19',
@@ -184,8 +198,30 @@ app.post('/eventful', function (req, res) {
         }
         
         rp(meetupOptions).then(function (data) {
-          sumData += JSON.stringify(data);
-          res.send(sumData);
+            if(data) {
+              var eventData = JSON.parse(data).map((singleEvent) => {
+                var checkTime;
+                if(singleEvent.next_event){
+                  checkTime = singleEvent.next_event.time;
+                }
+                var item = {
+                  name: singleEvent.name,
+                  time: checkTime,
+                  category: topic,
+                  url: singleEvent.link,
+                  //image: singleEvent.image,
+                  description: singleEvent.description,
+                  location: singleEvent.city +', '+ singleEvent.state
+                };
+                return item;
+              })
+              console.log('EVENT DATA', eventData)
+            }
+            eventData = JSON.stringify(eventData);
+            returnData += ',' + eventData.substring(1, eventData.length ) + ']';
+            console.log(returnData);
+            res.write(',' + eventData.substring(1, eventData.length ));
+            res.end();
         })
       })
 });
@@ -200,18 +236,3 @@ app.post('', function (req, res) {
 app.listen(3000, function () {
   console.log('listening on port 3000!');
 });
-
-/*
-var loc = '&l=' + req.query.location.split(' ').join('+');
-  var topic = '&q=' + req.query.topic; 
-  var options = {
-    app_key: 'app_key=CwcF9Lt3qkKh4gWB',
-    url: 'http://api.eventful.com/json/events/search?' + this.app_key + topic + loc + '&date=future',
-    headers: {
-      "Access-Control-Allow-Origin": "*"
-    }
-  };
-  request(options, function(err, reponse, body) {
-    console.log('in request', body);
-  }) */ 
-
