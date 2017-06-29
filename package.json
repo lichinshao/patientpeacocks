@@ -10,8 +10,7 @@
     "dev": "webpack -d --watch",
     "build": "webpack -p",
     "server-dev": "nodemon server/index.js",
-    "test": "jest",
-    "startSQL": "psql -U postgres < server/schema.sql"
+    "test": "jest"
   },
   "dependencies": {
     "babel": "^6.23.0",
