@@ -1,25 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react'
 import $ from 'jquery';
+import { Redirect, Link } from 'react-router'
+
 
 class signUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      value: '',
+      redirectToUser: false
     }
     this.UserPass = {};
+    this.signUpRequest = this.signUpRequest.bind(this);
   }
 
-  handleSubmit(event){
+  handleSubmit(event) {
     event.preventDefault();
     this.UserPass = {
-      body: {
       name: this.userName.value,
       password: this.password.value
-      }
     }
     this.signUpRequest();
-  
   }
 
   signUpRequest() {
@@ -28,20 +29,26 @@ class signUp extends React.Component {
       type: 'POST',
       contentType: 'application/json',
       data: JSON.stringify(this.UserPass),
-      success: function() {
+      success: () => {
         console.log('Signup was successful');
+        this.setState({
+          redirectToUser: true
+        })
+        if(this.state.redirectToUser) {
+          this.props.router.push('/userpage')
+        }
       },
-      error: function(err) {
+      error: function (err) {
         console.log('Signup failed', err);
       }
     })
   }
-  
+
 
   render() {
     return (
       <div>
-        <form method = "POST" onSubmit={this.handleSubmit.bind(this)}>
+        <form method="POST" onSubmit={this.handleSubmit.bind(this)}>
           <h2>Sign Up</h2>
           <div>
             <label>
@@ -56,9 +63,10 @@ class signUp extends React.Component {
             </label>
           </div>
           <div>
-            <input type="submit" value="Login"/>>
+            <input type="submit" value="Signup!" />>
           </div>
         </form>
+        <Link to='/login'>Click here if you have an account!</Link>
       </div>
     );
   }

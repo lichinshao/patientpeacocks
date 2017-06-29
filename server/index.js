@@ -6,6 +6,8 @@ var models = require('./models');
 var LocalStrategy = require('passport-local').Strategy;
 var auth = require('passport-local-authenticate');
 var db = require('./database');
+var bcrypt = require('bcrypt');
+var salt = bcrypt.genSaltSync(10);
 
 var app = express();
 var rp = require('request-promise');
@@ -53,14 +55,15 @@ app.post('/register', function(req, res) {
   // auth.hash(req.body.password, function(err, hashed) {
   //   console.log(hashed.hash);
   //   console.log(hashed.salt);
-  // console.log(req.body);
+  var hash = bcrypt.hashSync(req.body.password, salt);
+
     db.query(`select * from users where name = '${req.body.name}'`).
     then((users) => {
       console.log('this is the user', users);
       if (users.length) {
         res.end('User already exists!');
       } else {
-        db.query(`INSERT INTO users (name, password) VALUES ('${req.body.name}', '${req.body.password}')`).
+        db.query(`INSERT INTO users (name, password) VALUES ('${req.body.name}', '${hash}')`).
           then((users) => {
             res.end();
             //where we will pass the token back inside res.end
@@ -78,10 +81,16 @@ app.post('/register', function(req, res) {
   });
 
 app.post('/login', function(req, res) {
+
+  // console.log(req.body);
+  var hash = bcrypt.hashSync(req.body.password, salt);
+  // console.log(hash);
   db.query(`select * from users where name = '${req.body.name}'`).
     then((user) => {
-      if (user.length && user[0].password === req.body.password) {
+      if (user) {
+        if(user[0].password === hash) {
         res.end('successful login');
+        }
       } else {
         res.writeHead(403, {'Content-Type': 'application/json'});
         res.end(JSON.stringify({message: 'user doesn\'t exist or password is incorrect'}));
