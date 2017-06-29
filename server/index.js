@@ -195,7 +195,7 @@ app.post('/eventful', function (req, res) {
               console.log('EVENT DATA', eventData)
             }
             eventData = JSON.stringify(eventData);
-            returnData += ',' + eventData.substring(1, eventData.length ) + ']';
+            returnData += ',' + eventData.substring(1, eventData.length );
             console.log(returnData);
             res.write(',' + eventData.substring(1, eventData.length ));
             res.end();

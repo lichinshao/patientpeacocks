@@ -61,24 +61,15 @@ class homepage extends React.Component {
 
       success: (item) => {
         console.log('ajax was successful at post request from Eventful');
+        var data = JSON.parse(item);
         this.setState({
-          eventsBar: item.slice(0, 5)
+          eventsBar: data.slice(0,10)
         })
 
         // console.log(this.state.location, this.state.eventsBar);
       },
       error: () => {
         console.log('ajax failed at post request from Eventful');
-      }
-    })
-  }
-
-  getMeetup() {
-    $.ajax({
-      url: '/meetup',
-      type: 'GET',
-      success: (item) => {
-        console.log('ajax was successful at get request from Meetup')
       }
     })
   }
@@ -99,7 +90,7 @@ class homepage extends React.Component {
         </div>
         <br></br>
         <div>
-          <Search eventful={this.getEventful.bind(this)} changeLocation ={this.changeLocation.bind(this)} meetUp={this.getMeetup.bind(this)} />
+          <Search eventful={this.getEventful.bind(this)} changeLocation ={this.changeLocation.bind(this)} />
           <SearchList events={this.state.eventsBar} getEvents = {this.getEventful.bind(this)}/>
         </div>
       </div>
