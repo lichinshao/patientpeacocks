@@ -70,6 +70,7 @@ class userPage extends React.Component {
           <PageHeader className='title'>Event Planner
             <small className='signup'>
               Lalalala Sandwich
+              <Link to='/'>Logout</Link>
             </small>
           </PageHeader>
         </div>

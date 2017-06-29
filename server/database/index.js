@@ -5,7 +5,7 @@ const connection = {
   port: '5432',
   database: 'events_app',
   user: 'postgres',
-  password: 'meow2meow'
+  password: 'password'
 }
 
 const db = pg(connection);
