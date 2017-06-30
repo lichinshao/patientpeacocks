@@ -63,7 +63,7 @@ class Login extends React.Component {
             <input type="submit" value="Login!" />
           </div>
         </form>
-        <Link to='/signup'>Click here if you have an account!</Link>
+        
       </div>
     );
   }
