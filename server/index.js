@@ -221,7 +221,9 @@ app.get('/meetup', function(req, res) {
 app.post('', function (req, res) {
 });
 
-app.listen(3000, function () {
-  console.log('listening on port 3000!');
+var port = process.env.PORT || 3000; 
+
+app.listen(port, function () {
+  console.log('listening on port !' + port);
 });
 
