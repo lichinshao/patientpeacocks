@@ -26,7 +26,7 @@ class Search extends React.Component {
   render() {
     return (
       <div>
-        <ButtonToolbar>
+        <ButtonToolbar className = "search">
           <form onSubmit={this.handleSubmit.bind(this)}>
             <label>
               Location:
