@@ -29,7 +29,7 @@ class SearchListUser extends React.Component {
         <Tab.Container id="left-tabs-example" defaultActiveKey="first">
           <Row className="clearfix">
             <Col sm={4}>
-              <Nav bsStyle="pills" stacked onSelect = {this.searchValue.bind(this)}> 
+              <Nav bsStyle="pills" stacked onSelect = {this.searchValue.bind(this)}>
                 <NavItem eventKey={'saved'}>Saved</NavItem>
                 <NavItem eventKey={'music'}>Music</NavItem>
                 <NavItem eventKey={'food'}>Food</NavItem>
@@ -41,14 +41,14 @@ class SearchListUser extends React.Component {
             <Col sm={8} >
               <Tab.Content animation>
               {this.props.events.map((event, index) => (
-                <Tab.Pane key = {index} eventKey={this.state.tabList[index]}>
-                  <div className="mount-entry" key={event.id}>
-						        <h4 className="mountTitle">{event.title}</h4> 
-						        <h5 className="mountDate">{event.start_time}</h5>
-						        <h5 className="mountCity">{event.city_name}</h5>
-						        <h5 className="mountDescripton">{event.description}</h5>
+                  <div key={index}>
+                    <h4 >{event.name}</h4>
+                    <br/>
+                    <h5 >{event.time}</h5>
+                    <h5 >{event.location}</h5>
+                    <h5 >{event.description}</h5>
 					        </div>
-                </Tab.Pane>
+
               ))}
               </Tab.Content>
             </Col>
