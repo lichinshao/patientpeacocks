@@ -4,8 +4,8 @@ import Home from './components/homepage.jsx';
 import Login from './components/login.jsx';
 import signUp from './components/signUp.jsx';
 import userPage from './components/userPage.jsx';
+// import NotFound from './components/notFound.jsx';
 import ReactDOM from 'react-dom';
-import NotFound from './components/notFound.jsx';
 
 class App extends Component {
   render() {
@@ -21,4 +21,10 @@ class App extends Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+const notFound = () => {
+  return (
+    <h1>404... This page is not found</h1>
+  )
+};
+
+ReactDOM.render(<App />, document.getElementById('app'))
