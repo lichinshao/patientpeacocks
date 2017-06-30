@@ -47,7 +47,7 @@ class signUp extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className = 'signupPage'>
         <form method="POST" onSubmit={this.handleSubmit.bind(this)}>
           <h2>Sign Up</h2>
           <div>
@@ -63,7 +63,7 @@ class signUp extends React.Component {
             </label>
           </div>
           <div>
-            <input type="submit" value="Signup!" />>
+            <input type="submit" value="Signup!" />
           </div>
         </form>
         <Link to='/login'>Click here if you have an account!</Link>

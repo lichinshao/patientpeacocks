@@ -2,10 +2,10 @@ const pg = require('pg-promise')();
 
 const connection = {
   host: 'localhost',
-  port: '5432',
+  port: '',
   database: 'events_app',
   user: 'postgres',
-  password: 'password'
+  password: 'meow2meow'
 }
 
 const db = pg(connection);
@@ -15,4 +15,5 @@ module.exports = db;
 
 // db.query('select * from users').then((result)=> {
 //   console.log(result);
+// })
 // })

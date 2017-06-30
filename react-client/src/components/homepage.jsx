@@ -69,13 +69,15 @@ class homepage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className = 'pageContainer'>
         <div className='titleContainer'>
           <PageHeader className='title'>Event Planner
-            <small className='signup'>
+            <Button bsSize="small" className='login'>
                 <Link to='/login'>Login</Link>
+            </Button>
+            <Button bsSize="small" className = 'signup'>
                 <Link to='/signUP'>Sign Up</Link>
-            </small>
+            </Button>
           </PageHeader>
         </div>
         <div>

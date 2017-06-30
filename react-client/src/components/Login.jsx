@@ -44,7 +44,7 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className = 'loginPage'>
         <form method="POST" onSubmit={this.handleSubmit.bind(this)}>
           <h2>Login</h2>
           <div>
@@ -60,7 +60,7 @@ class Login extends React.Component {
             </label>
           </div>
           <div>
-            <input type="submit" value="Login!" />>
+            <input type="submit" value="Login!" />
           </div>
         </form>
         <Link to='/signup'>Click here if you have an account!</Link>
