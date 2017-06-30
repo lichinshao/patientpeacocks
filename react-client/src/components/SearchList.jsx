@@ -19,12 +19,10 @@ class SearchList extends React.Component {
   }
 
   searchValue(event) {
-    console.log(event);
     this.props.getEvents(event);
   }
 
   render() {
-    console.log(this.props.events);
     return (
       <div>
         <Tab.Container id="left-tabs-example" defaultActiveKey="first">
@@ -40,6 +38,7 @@ class SearchList extends React.Component {
             </Col>
             <Col sm={9} className = 'col9'>
               <Tab.Content animation>
+
               {this.props.events.map((event, index) => (
                   <div key={index}>
 						        <h4 >{event.name}</h4> 
@@ -47,6 +46,8 @@ class SearchList extends React.Component {
 						        <h5 >{event.time}</h5>
 						        <h5 >{event.location}</h5>
 						        <h5 >{event.description}</h5>
+                    <button onClick={ ()=> this.props.save(event) } >Save</button>
+                    <br/>
                     <a href={ event.url } >{event.name}</a>
                     <br/>
 					        </div>
