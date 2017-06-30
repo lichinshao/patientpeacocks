@@ -8,9 +8,10 @@ var auth = require('passport-local-authenticate');
 var db = require('./database');
 var bcrypt = require('bcrypt');
 var salt = bcrypt.genSaltSync(10);
-
 var app = express();
 var rp = require('request-promise');
+
+
 
 app.set('views', `${__dirname}/views`);
 app.set('view engine', 'ejs');
@@ -200,7 +201,7 @@ app.post('/eventful', function (req, res) {
               console.log('EVENT DATA', eventData)
             }
             eventData = JSON.stringify(eventData);
-            returnData += ',' + eventData.substring(1, eventData.length ) + ']';
+            returnData += ',' + eventData.substring(1, eventData.length );
             console.log(returnData);
             res.write(',' + eventData.substring(1, eventData.length ));
             res.end();

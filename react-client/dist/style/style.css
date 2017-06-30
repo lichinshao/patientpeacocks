@@ -1,13 +1,54 @@
-.title {
-  font-size: 150%;
+h1{
+    padding: 0px;
+    margin-bottom: 5px;
+    font-size: 48px;
+    margin-left: 20px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 .signup{
   float: right;
+  margin-right: 15px;
+  margin-top: 15px;
+}
+
+.login{
+  float: right;
+  margin-right: 20px;
+  margin-top: 15px;
 }
 
 .carousel {
-  width:640px;
-  height:360px;
+  height:300px;
   margin: auto;
+}
+
+.titleContainer {
+  background-color: lightblue;
+}
+
+.page-header {
+  margin: 0px;
+  padding-top: 40px;
+}
+
+.search{
+    margin-left: 10px;
+}
+
+.col9{
+  background-color: lightblue;
+  padding-right: 0px;
+}
+
+.clearfix{
+  margin: auto;
+}
+
+.signupPage{
+  margin-left: 10px;
+}
+
+.loginPage{
+  margin-left: 10px;
 }

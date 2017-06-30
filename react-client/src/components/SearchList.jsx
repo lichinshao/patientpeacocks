@@ -24,11 +24,12 @@ class SearchList extends React.Component {
   }
 
   render() {
+    console.log(this.props.events);
     return (
       <div>
         <Tab.Container id="left-tabs-example" defaultActiveKey="first">
           <Row className="clearfix">
-            <Col sm={4}>
+            <Col sm={3} className='col3'>
               <Nav bsStyle="pills" stacked onSelect = {this.searchValue.bind(this)}> 
                 <NavItem eventKey={'music'}>Music</NavItem>
                 <NavItem eventKey={'food'}>Food</NavItem>
@@ -37,17 +38,19 @@ class SearchList extends React.Component {
                 <NavItem eventKey={'animals'}>Animals</NavItem>
               </Nav>
             </Col>
-            <Col sm={8} >
+            <Col sm={9} className = 'col9'>
               <Tab.Content animation>
               {this.props.events.map((event, index) => (
-                <Tab.Pane key = {index} eventKey={this.state.tabList[index]}>
-                  <div className="mount-entry" key={event.id}>
-						        <h4 className="mountTitle">{event.title}</h4> 
-						        <h5 className="mountDate">{event.start_time}</h5>
-						        <h5 className="mountCity">{event.city_name}</h5>
-						        <h5 className="mountDescripton">{event.description}</h5>
+                  <div key={index}>
+						        <h4 >{event.name}</h4> 
+                    <br/>
+						        <h5 >{event.time}</h5>
+						        <h5 >{event.location}</h5>
+						        <h5 >{event.description}</h5>
+                    <a href={ event.url } >{event.name}</a>
+                    <br/>
 					        </div>
-                </Tab.Pane>
+              
               ))}
               </Tab.Content>
             </Col>

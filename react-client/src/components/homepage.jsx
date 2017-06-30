@@ -61,8 +61,9 @@ class homepage extends React.Component {
 
       success: (item) => {
         console.log('ajax was successful at post request from Eventful');
+        var data = JSON.parse(item);
         this.setState({
-          eventsBar: item.slice(0, 5)
+          eventsBar: data.slice(0,10)
         })
 
         // console.log(this.state.location, this.state.eventsBar);
@@ -73,25 +74,17 @@ class homepage extends React.Component {
     })
   }
 
-  getMeetup() {
-    $.ajax({
-      url: '/meetup',
-      type: 'GET',
-      success: (item) => {
-        console.log('ajax was successful at get request from Meetup')
-      }
-    })
-  }
-
   render() {
     return (
-      <div>
+      <div className = 'pageContainer'>
         <div className='titleContainer'>
           <PageHeader className='title'>Event Planner
-            <small className='signup'>
+            <Button bsSize="small" className='login'>
                 <Link to='/login'>Login</Link>
+            </Button>
+            <Button bsSize="small" className = 'signup'>
                 <Link to='/signUP'>Sign Up</Link>
-            </small>
+            </Button>
           </PageHeader>
         </div>
         <div>
@@ -99,7 +92,7 @@ class homepage extends React.Component {
         </div>
         <br></br>
         <div>
-          <Search eventful={this.getEventful.bind(this)} changeLocation ={this.changeLocation.bind(this)} meetUp={this.getMeetup.bind(this)} />
+          <Search eventful={this.getEventful.bind(this)} changeLocation ={this.changeLocation.bind(this)} />
           <SearchList events={this.state.eventsBar} getEvents = {this.getEventful.bind(this)}/>
         </div>
       </div>
