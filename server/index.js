@@ -213,6 +213,9 @@ app.post('/eventful', function (req, res) {
 
 app.post('/save', function (req, res) {
   console.log(req.body);
+  var event = req.body.event;
+  //var userName = JSON.parse(req.body).userName;
+  //models.users.saveEvent(userName, event);
 });
 
 app.get('/meetup', function(req, res) {
