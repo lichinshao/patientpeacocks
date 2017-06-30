@@ -23,26 +23,6 @@ class homepage extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   const appKey = 'app_key=CwcF9Lt3qkKh4gWB';
-
-  //   $.ajax({
-  //     method: "GET",
-  //     url: 'http://api.eventful.com/json/events/search?' + appKey + '&l=san+francisco&date=future',
-  //     headers: {
-  //       "Access-Control-Allow-Origin": "*"
-  //     },
-  //     dataType: 'jsonp',
-  //     success: (data) => {
-  //       this.setState({ eventsBar: data.events.event, loaded: true });
-
-  //     },
-  //     error: (err) => {
-  //       console.log(err)
-  //     }
-  //   });
-  // }
-
   changeLocation(location) {
     this.setState({
       location: location
@@ -65,13 +45,15 @@ class homepage extends React.Component {
         this.setState({
           eventsBar: data.slice(0,10)
         })
-
-        // console.log(this.state.location, this.state.eventsBar);
       },
       error: () => {
         console.log('ajax failed at post request from Eventful');
       }
     })
+  }
+
+  saveEvent(event) {
+    console.log(event);
   }
 
   render() {
@@ -91,18 +73,11 @@ class homepage extends React.Component {
         <br></br>
         <div>
           <Search eventful={this.getEventful.bind(this)} changeLocation ={this.changeLocation.bind(this)} />
-          <SearchList events={this.state.eventsBar} getEvents = {this.getEventful.bind(this)}/>
+          <SearchList save={this.saveEvent.bind(this)} events={this.state.eventsBar} getEvents = {this.getEventful.bind(this)}/>
         </div>
       </div>
     );
   }
 }
-/* data: {
-        location: 'san francisco',
-        topic: 'music'
-      },
-      type: 'GET',
-      dataType: 'jsonp',
-*/
 
 export default homepage;

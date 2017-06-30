@@ -202,11 +202,9 @@ app.post('/eventful', function (req, res) {
                 };
                 return item;
               })
-              console.log('EVENT DATA', eventData)
             }
             eventData = JSON.stringify(eventData);
             returnData += ',' + eventData.substring(1, eventData.length );
-            console.log(returnData);
             res.write(',' + eventData.substring(1, eventData.length ));
             res.end();
         })
