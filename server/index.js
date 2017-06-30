@@ -112,10 +112,6 @@ auth.hash('password', function (err, hashed) {
   })
 })
 */
-
-
-
-
 app.post('/login', passport.authenticate('local', {}),
   function(req, res) {
 
@@ -127,7 +123,6 @@ app.post('/login', passport.authenticate('local', {}),
   //                                 failureFlash: 'Invalid username or password.',
   //                                 successFlash: 'Welcome!' })
   // );
-
 
 
 app.post('/eventful', function (req, res) {
