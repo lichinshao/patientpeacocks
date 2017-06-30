@@ -8,9 +8,10 @@ var auth = require('passport-local-authenticate');
 var db = require('./database');
 var bcrypt = require('bcrypt');
 var salt = bcrypt.genSaltSync(10);
-
 var app = express();
 var rp = require('request-promise');
+
+
 
 app.set('views', `${__dirname}/views`);
 app.set('view engine', 'ejs');
@@ -111,10 +112,6 @@ auth.hash('password', function (err, hashed) {
   })
 })
 */
-
-
-
-
 app.post('/login', passport.authenticate('local', {}),
   function(req, res) {
 
@@ -126,7 +123,6 @@ app.post('/login', passport.authenticate('local', {}),
   //                                 failureFlash: 'Invalid username or password.',
   //                                 successFlash: 'Welcome!' })
   // );
-
 
 
 app.post('/eventful', function (req, res) {
@@ -152,7 +148,7 @@ app.post('/eventful', function (req, res) {
             time: singleEvent.start_time,
             category: topic,
             url: singleEvent.url,
-            //image: singleEvent.image,
+            image: singleEvent.image,
             description: singleEvent.description,
             location: singleEvent.venue_address
           };
@@ -196,21 +192,26 @@ app.post('/eventful', function (req, res) {
                   time: checkTime,
                   category: topic,
                   url: singleEvent.link,
-                  //image: singleEvent.image,
+                  image: singleEvent.image,
                   description: singleEvent.description,
                   location: singleEvent.city +', '+ singleEvent.state
                 };
                 return item;
               })
-              console.log('EVENT DATA', eventData)
             }
             eventData = JSON.stringify(eventData);
             returnData += ',' + eventData.substring(1, eventData.length );
-            console.log(returnData);
             res.write(',' + eventData.substring(1, eventData.length ));
             res.end();
         })
       })
+});
+
+app.post('/save', function (req, res) {
+  console.log(req.body);
+  var event = req.body.event;
+  //var userName = JSON.parse(req.body).userName;
+  //models.users.saveEvent(userName, event);
 });
 
 app.get('/meetup', function(req, res) {

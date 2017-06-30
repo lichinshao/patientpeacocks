@@ -1,16 +1,16 @@
 {
   "name": "patient-peacocks",
   "version": "1.0.0",
-  "description": "",
+  "description": "event planner",
   "engines": {
-    "node": ">=6.4.0"
+    "node": "6.11.0",
+    "npm": "3.10.10"
   },
   "scripts": {
     "dev": "webpack -d --watch",
     "build": "webpack -p",
     "server-dev": "nodemon server/index.js",
-    "test": "jest",
-    "startSQL": "psql -U postgres < server/schema.sql"
+    "test": "jest"
   },
   "dependencies": {
     "babel": "^6.23.0",
@@ -18,10 +18,9 @@
     "bcrypt": "^1.0.2",
     "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
-    "express": "^4.15.3",
+    "express": "4.15.3",
     "jquery": "^3.2.1",
     "meetup-api": "^1.4.20",
-    "node": "0.0.0",
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
@@ -33,7 +32,6 @@
     "react-router": "^3.0.5",
     "request": "^2.81.0",
     "request-promise": "^4.2.1"
-
   },
   "devDependencies": {
     "babel-cli": "^6.7.5",
@@ -44,7 +42,6 @@
     "babel-register": "^6.7.2",
     "enzyme": "^2.9.1",
     "enzyme-to-json": "^1.5.1",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^20.0.4",
     "react-addons-test-utils": "^15.6.0",
     "react-router-dom": "^4.1.1",
