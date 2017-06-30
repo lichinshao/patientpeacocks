@@ -17,8 +17,8 @@ DROP TABLE if exists users_events;
 CREATE TABLE users (
   id serial PRIMARY KEY,
   name VARCHAR(20) NOT NULL,
-  password TEXT NOT NULL
-  -- UNIQUE (id)
+  password TEXT NOT NULL,
+  UNIQUE (id)
 );
 
 CREATE TABLE events (
@@ -28,7 +28,8 @@ CREATE TABLE events (
   category VARCHAR(50) NOT NULL,
   url TEXT NOT NULL,
   description VARCHAR(100) NOT NULL,
-  location VARCHAR(100) NOT NULL
+  location VARCHAR(100) NOT NULL,
+  UNIQUE (id)
 );
 
 

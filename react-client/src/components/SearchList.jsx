@@ -28,7 +28,7 @@ class SearchList extends React.Component {
         <Tab.Container id="left-tabs-example" defaultActiveKey="first">
           <Row className="clearfix">
             <Col sm={3} className='col3'>
-              <Nav bsStyle="pills" stacked onSelect = {this.searchValue.bind(this)}> 
+              <Nav bsStyle="pills" stacked onSelect = {this.searchValue.bind(this)}>
                 <NavItem eventKey={'music'}>Music</NavItem>
                 <NavItem eventKey={'food'}>Food</NavItem>
                 <NavItem eventKey={'arts'}>Arts</NavItem>
@@ -41,7 +41,7 @@ class SearchList extends React.Component {
 
               {this.props.events.map((event, index) => (
                   <div key={index}>
-						        <h4 >{event.name}</h4> 
+						        <h4 >{event.name}</h4>
                     <br/>
 						        <h5 >{event.time}</h5>
 						        <h5 >{event.location}</h5>
@@ -51,7 +51,7 @@ class SearchList extends React.Component {
                     <a href={ event.url } >{event.name}</a>
                     <br/>
 					        </div>
-              
+
               ))}
               </Tab.Content>
             </Col>
