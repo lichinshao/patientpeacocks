@@ -56,7 +56,7 @@ class Login extends React.Component {
           <div>
             <label>
               Password:
-              <input type="text" ref={(input) => this.password = input} />
+              <input type="password" ref={(input) => this.password = input} />
             </label>
           </div>
           <div>
