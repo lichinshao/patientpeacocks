@@ -152,7 +152,7 @@ app.post('/eventful', function (req, res) {
             time: singleEvent.start_time,
             category: topic,
             url: singleEvent.url,
-            //image: singleEvent.image,
+            image: singleEvent.image,
             description: singleEvent.description,
             location: singleEvent.venue_address
           };
@@ -196,7 +196,7 @@ app.post('/eventful', function (req, res) {
                   time: checkTime,
                   category: topic,
                   url: singleEvent.link,
-                  //image: singleEvent.image,
+                  image: singleEvent.image,
                   description: singleEvent.description,
                   location: singleEvent.city +', '+ singleEvent.state
                 };
@@ -209,6 +209,10 @@ app.post('/eventful', function (req, res) {
             res.end();
         })
       })
+});
+
+app.post('/save', function (req, res) {
+  console.log(req.body);
 });
 
 app.get('/meetup', function(req, res) {

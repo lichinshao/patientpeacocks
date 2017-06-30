@@ -53,7 +53,18 @@ class homepage extends React.Component {
   }
 
   saveEvent(event) {
-    console.log(event);
+    console.log('Event', event);
+    $.ajax({
+      url: '/save',
+      data: JSON.stringify({
+        event: event
+      }),
+      contentType: 'application/json',
+      type: 'POST',
+      success: () => {
+        console.log('Saved Event Properly');
+      }
+    })
   }
 
   render() {

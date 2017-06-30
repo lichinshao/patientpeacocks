@@ -44,8 +44,6 @@ class userPage extends React.Component {
         this.setState({
           eventsBar: item.slice(0, 5)
         })
-
-        // console.log(this.state.location, this.state.eventsBar);
       },
       error: () => {
         console.log('ajax failed at post request from Eventful');
