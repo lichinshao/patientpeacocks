@@ -12,11 +12,13 @@ CREATE DATABASE events_app;
 
 DROP TABLE if exists users;
 DROP TABLE if exists events;
+DROP TABLE if exists users_events;
 
 CREATE TABLE users (
   id serial PRIMARY KEY,
   name VARCHAR(20) NOT NULL,
   password TEXT NOT NULL
+  -- UNIQUE (id)
 );
 
 CREATE TABLE events (
@@ -53,6 +55,7 @@ INSERT INTO events (name, dateAndTime, category, url, description, location) VAL
 
 
 INSERT INTO users_events (userId, eventId) VALUES (1, 2);
+INSERT INTO users_events (userId, eventId) VALUES (1, 4);
 INSERT INTO users_events (userId, eventId) VALUES (2, 1);
 INSERT INTO users_events (userId, eventId) VALUES (3, 1);
 INSERT INTO users_events (userId, eventId) VALUES (3, 2);
