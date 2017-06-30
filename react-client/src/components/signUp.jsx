@@ -30,6 +30,7 @@ class signUp extends React.Component {
       contentType: 'application/json',
       data: JSON.stringify(this.UserPass),
       success: () => {
+        window.username = this.UserPass.name;
         console.log('Signup was successful');
         this.setState({
           redirectToUser: true
