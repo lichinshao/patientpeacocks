@@ -18,7 +18,7 @@ CREATE TABLE users (
   id serial PRIMARY KEY,
   name VARCHAR(20) NOT NULL,
   password TEXT NOT NULL,
-  UNIQUE (id)
+  UNIQUE (name)
 );
 
 CREATE TABLE events (
@@ -29,7 +29,7 @@ CREATE TABLE events (
   url TEXT NOT NULL,
   description VARCHAR(100) NOT NULL,
   location VARCHAR(100) NOT NULL,
-  UNIQUE (id)
+  UNIQUE (name)
 );
 
 
