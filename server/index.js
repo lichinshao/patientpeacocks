@@ -85,7 +85,7 @@ app.post('/register', function(req, res) {
     });
   });
 
-app.get(‘/’, function(req, res) {
+app.get('/', function(req, res) {
   res.sendStatus(200);
 });
 
