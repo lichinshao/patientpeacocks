@@ -124,7 +124,9 @@ app.post('/login', passport.authenticate('local', {}),
   //                                 failureFlash: 'Invalid username or password.',
   //                                 successFlash: 'Welcome!' })
   // );
-
+app.get(‘/’, function(req, res) {
+  res.sendStatus(200);
+});
 
 app.post('/eventful', function (req, res) {
   // var data = JSON.parse(req.body);
