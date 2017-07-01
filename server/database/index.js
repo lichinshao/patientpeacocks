@@ -4,7 +4,7 @@ const pgs = require('pg');
 pgs.defaults.ssl = true;
 const connection = {
   host: 'localhost',
-  port: '',
+  port: process.env.PORT || 3000,
   database: 'events_app',
   user: 'postgres',
   password: 'meow2meow'
