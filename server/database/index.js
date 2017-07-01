@@ -1,5 +1,7 @@
 const pg = require('pg-promise')();
+const pgs = require('pg');
 
+pgs.defaults.ssl = true;
 const connection = {
   host: 'localhost',
   port: '',
@@ -8,8 +10,18 @@ const connection = {
   password: 'meow2meow'
 }
 
-const db = pg(connection);
 
+// pgs.connect(process.env.DATABASE_URL, function(err, client) {
+//   if (err) {
+//   	console.log(err);
+//   }
+//   client.query('SELECT table_schema,table_name FROM information_schema.tables;')
+//     .on('row', function(row) {
+//       console.log(JSON.stringify(row));
+//     })
+// });
+
+const db = pg(connection);
 module.exports = db;
 
 
