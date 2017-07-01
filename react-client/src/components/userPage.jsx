@@ -44,7 +44,7 @@ class userPage extends React.Component {
         var data = JSON.parse(item);
         this.setState({
           eventsBar: data.slice(0, 5)
-
+        });
         // console.log(this.state.location, this.state.eventsBar);
       },
       error: () => {
