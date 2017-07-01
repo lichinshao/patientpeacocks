@@ -90,6 +90,7 @@ app.post('/login', function(req, res) {
     then((user) => {
       if (user) {
         if(user[0].password === hash) {
+        res.write(req.body);
         res.end('successful login');
         }
       } else {
@@ -150,7 +151,9 @@ app.post('/eventful', function (req, res) {
             url: singleEvent.url,
             image: singleEvent.image,
             description: singleEvent.description,
-            location: singleEvent.venue_address
+            location: singleEvent.venue_address,
+            lat: singleEvent.lat,
+            lon: singleEvent.lon
           };
           return item;
         })
@@ -194,7 +197,9 @@ app.post('/eventful', function (req, res) {
                   url: singleEvent.link,
                   image: singleEvent.image,
                   description: singleEvent.description,
-                  location: singleEvent.city +', '+ singleEvent.state
+                  location: singleEvent.city +', '+ singleEvent.state,
+                  lat: singleEvent.latitude,
+                  long: singleEvent.longitude
                 };
                 return item;
               })
@@ -208,10 +213,10 @@ app.post('/eventful', function (req, res) {
 });
 
 app.post('/save', function (req, res) {
-  console.log(req.body);
-  var event = req.body.event;
-  //var userName = JSON.parse(req.body).userName;
-  //models.users.saveEvent(userName, event);
+  var data = req.body;
+  var event = data.event;
+  var username = data.username;
+  models.users.saveEvent(username, event);
 });
 
 app.get('/meetup', function(req, res) {
