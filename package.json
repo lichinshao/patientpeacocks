@@ -10,7 +10,8 @@
     "dev": "webpack -d --watch",
     "build": "webpack -p",
     "server-dev": "nodemon server/index.js",
-    "test": "jest"
+    "test": "jest",
+    "start": "node server/index.js"
   },
   "dependencies": {
     "babel": "^6.23.0",
