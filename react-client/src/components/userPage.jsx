@@ -44,8 +44,7 @@ class userPage extends React.Component {
         var data = JSON.parse(item);
         this.setState({
           eventsBar: data.slice(0, 5)
-        })
-
+        });
         // console.log(this.state.location, this.state.eventsBar);
       },
       error: () => {
@@ -54,14 +53,21 @@ class userPage extends React.Component {
     })
   }
 
-  getMeetup() {
-    $.ajax({
-      url: '/meetup',
-      type: 'GET',
-      success: (item) => {
-        console.log('ajax was successful at get request from Meetup')
-      }
-    })
+  saveEvent(event) {
+    if(window.username !== '') {
+      $.ajax({
+        url: '/save',
+        data: JSON.stringify({
+          event: event,
+          username: window.username
+        }),
+        contentType: 'application/json',
+        type: 'POST',
+        success: () => {
+          console.log('Saved Event Properly');
+        }
+      })
+    }
   }
 
   render() {
@@ -70,7 +76,6 @@ class userPage extends React.Component {
         <div className='titleContainer'>
           <PageHeader className='title'>Event Planner
             <small className='signup'>
-              Lalalala Sandwich
               <Link to='/'>Logout</Link>
             </small>
           </PageHeader>
@@ -80,8 +85,8 @@ class userPage extends React.Component {
         </div>
         <br></br>
         <div>
-          <Search eventful={this.getEventful.bind(this)} changeLocation ={this.changeLocation.bind(this)} meetUp={this.getMeetup.bind(this)} />
-          <SearchListUser events={this.state.eventsBar} getEvents = {this.getEventful.bind(this)}/>
+          <Search eventful={this.getEventful.bind(this)} />
+          <SearchListUser save={this.saveEvent.bind(this)} events={this.state.eventsBar} getEvents = {this.getEventful.bind(this)}/>
         </div>
       </div>
     );

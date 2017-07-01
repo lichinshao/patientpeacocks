@@ -38,15 +38,14 @@ class SearchList extends React.Component {
             </Col>
             <Col sm={9} className = 'col9'>
               <Tab.Content animation>
-
               {this.props.events.map((event, index) => (
                   <div key={index}>
-						        <h4 >{event.name}</h4>
+                    
+						        <h4 >{event.name}</h4> 
                     <br/>
 						        <h5 >{event.time}</h5>
 						        <h5 >{event.location}</h5>
 						        <h5 >{event.description}</h5>
-                    <button onClick={ ()=> this.props.save(event) } >Save</button>
                     <br/>
                     <a href={ event.url } >{event.name}</a>
                     <br/>
