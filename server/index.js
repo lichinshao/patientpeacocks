@@ -48,6 +48,10 @@ passport.use(new LocalStrategy({
   }
 ));
 
+app.get('/', function(req, res) {
+  res.sendStatus(200);
+})
+
 app.get('/register', function(req, res) {
   res.render('register');
 })
