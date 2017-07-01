@@ -11,7 +11,7 @@
     "build": "webpack -p",
     "server-dev": "nodemon server/index.js",
     "test": "jest",
-    "start": "open react-client/dist/index.html"
+    "start": "node server/index.html"
   },
   "dependencies": {
     "babel": "^6.23.0",
