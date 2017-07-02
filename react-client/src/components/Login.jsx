@@ -2,6 +2,8 @@ import React from 'react';
 import { Redirect, Link } from 'react-router'
 import $ from 'jquery';
 
+import { Router, Switch, Route, IndexRoute, hashHistory, browserHistory } from 'react-router';
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -30,15 +32,17 @@ class Login extends React.Component {
       success: () => {
         window.username = this.UserPass.name;
         console.log('login was successful');
-        this.setState({
-          redirectToUser: true
-        })
-        if(this.state.redirectToUser) {
-          this.props.router.push('/userpage')
-        }
+        browserHistory.push('/');
+        // this.setState({
+        //   redirectToUser: true
+        // })
+        // if(this.state.redirectToUser) {
+          // this.props.router.push('/userpage')
+        // }
       },
       error: function (err) {
-        console.log('Signup failed', err);
+        console.log('login failed', err);
+        alert('invalid username or password.');
       }
     })
   }
@@ -61,10 +65,11 @@ class Login extends React.Component {
             </label>
           </div>
           <div>
-            <input type="submit" value="Login!" />
+            <input type="submit"  value="Login!" />
           </div>
         </form>
-        <Link to='/signup'>Click here to create an account!</Link>
+        <Link to='/signup'>Click here to create an account!</Link><br></br>
+        <Link to='/'>Back to homepage</Link>
       </div>
     );
   }
