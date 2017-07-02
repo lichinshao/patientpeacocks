@@ -85,6 +85,10 @@ app.post('/register', function(req, res) {
     });
   });
 
+app.get('/', function(req, res) {
+  res.sendStatus(200);
+});
+
 app.post('/login', function(req, res) {
 
   // console.log(req.body);
@@ -134,7 +138,7 @@ app.post('/eventful', function (req, res) {
   // var data = JSON.parse(req.body);
   console.log(req.body);
   var loc = '&l=' + req.body.location.split(' ').join('+');
-  var topic = req.body.topic; 
+  var topic = req.body.topic;
   var returnData;
   var eventfulOptions = { method: 'GET',
   url: 'http://api.eventful.com/json/events/search',
@@ -167,7 +171,7 @@ app.post('/eventful', function (req, res) {
       res.write(eventData.substring(0, eventData.length - 1));
       return;
     }).then( () => {
-        var meetupCategories = 
+        var meetupCategories =
         {
           // meetup searches catagories by numbers
           // it is weird but functional
@@ -230,7 +234,7 @@ app.get('/meetup', function(req, res) {
 app.post('', function (req, res) {
 });
 
-var port = process.env.PORT || 3000; 
+var port = process.env.PORT || 3000;
 
 app.listen(port, function () {
   console.log('listening on port !' + port);
