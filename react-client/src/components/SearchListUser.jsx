@@ -33,12 +33,12 @@ class SearchListUser extends React.Component {
           <Row className="clearfix">
             <Col sm={3} className='col3'>
                 <Nav bsStyle="pills" className="category-tab" stacked >
-                <NavItem  className="search-tab" eventKey={'saved'} onSelect = {()=> {this.props.retrieveEvents()}} >Saved</NavItem>
-                <NavItem  className="search-tab" eventKey={'music' } onSelect = {this.searchValue.bind(this)} >Music</NavItem>
-                <NavItem  className="search-tab" eventKey={'food'} onSelect = {this.searchValue.bind(this) }>Food</NavItem>
-                <NavItem  className="search-tab" eventKey={'arts'} onSelect = {this.searchValue.bind(this)} >Arts</NavItem>
-                <NavItem  className="search-tab" eventKey={'books'} onSelect = {this.searchValue.bind(this)} >Books</NavItem>
-                <NavItem  className="search-tab" eventKey={'animals'} onSelect = {this.searchValue.bind(this)} >Animals</NavItem>
+                <NavItem  className="search-tab white" eventKey={'saved'} onSelect = {()=> {this.props.retrieveEvents()}} >Saved</NavItem>
+                <NavItem  className="search-tab white" eventKey={'music' } onSelect = {this.searchValue.bind(this)} >Music</NavItem>
+                <NavItem  className="search-tab white" eventKey={'food'} onSelect = {this.searchValue.bind(this) }>Food</NavItem>
+                <NavItem  className="search-tab white" eventKey={'arts'} onSelect = {this.searchValue.bind(this)} >Arts</NavItem>
+                <NavItem  className="search-tab white" eventKey={'books'} onSelect = {this.searchValue.bind(this)} >Books</NavItem>
+                <NavItem  className="search-tab white" eventKey={'animals'} onSelect = {this.searchValue.bind(this)} >Animals</NavItem>
               </Nav>
             </Col>
             <Col sm={9} className = 'col9'>
