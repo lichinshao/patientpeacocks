@@ -61,6 +61,7 @@ class userPage extends React.Component {
       console.log(this.state.location);
   }
   saveEvent(event) {
+    console.log('USERNAME', window.username, 'Events', event);
     if(window.username !== '') {
       $.ajax({
         url: '/save',
@@ -87,13 +88,12 @@ class userPage extends React.Component {
       type: 'POST',
       contentType: 'application/json',
 
-      success: (item) => {
-        console.log('ajax was successful at get request from Database');
-        // var data = JSON.parse(item);
-        // this.setState({
-        //   eventsBar: data.slice(0, 5)
-        // });
-        // console.log(this.state.location, this.state.eventsBar);
+      success: (events) => {
+        console.log('ajax was successful at get request from Database', events);
+        var data = JSON.parse(events);
+        this.setState({
+          eventsBar: data.slice(0, 5)
+        });
       },
       error: () => {
         console.log('ajax failed at get request from Database');

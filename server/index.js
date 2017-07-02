@@ -223,15 +223,23 @@ app.post('/save', function (req, res) {
   var event = data.event;
   var username = data.username;
   console.log('USERNAME', username, 'Event', event);
-  models.saveEvent(username, event);
+  db.query(`INSERT INTO events (name, dateAndTime, category, url, description, location) VALUES ('${event.name}', '${event.time}', '${event.category}', '${event.url}', '${event.description}', '${event.location}')`)
+    .then( () => {
+      db.query(`INSERT INTO users_events (userId, eventId) VALUES ( (SELECT id from users WHERE name = '${username}') , (SELECT id from events WHERE name = '${event.name}') )`)
+    }).catch( function(err) {
+      console.log(err);
+    })
 });
 
 app.post('/savedEvents', function(req, res) {
   var username = req.body.username;
   console.log(username);
-  var events = models.getUsersEvents(username);
-  // res.write(events);
-  res.end();
+  db.query(`SELECT e.name, e.dateAndTime, e.category, e.description, e.location from events e INNER JOIN users_events ue ON e.id = ue.eventId INNER JOIN users u ON u.id = ue.userId where u.name = '${username}'`)
+    .then( function(events) {
+      res.write(JSON.stringify(events));
+      res.end();
+    } );
+  
 })
 
 var port = process.env.PORT || 3000;
