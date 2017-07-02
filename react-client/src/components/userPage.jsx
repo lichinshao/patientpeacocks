@@ -53,6 +53,13 @@ class userPage extends React.Component {
     })
   }
 
+    changeLocation(location) {
+      console.log(location);
+      this.setState({
+        location: location
+      })
+      console.log(this.state.location);
+  }
   saveEvent(event) {
     if(window.username !== '') {
       $.ajax({
@@ -68,6 +75,30 @@ class userPage extends React.Component {
         }
       })
     }
+  }
+
+  retrieveSavedEvents() {
+    console.log(window.username);
+    $.ajax({
+      url: '/savedEvents',
+      data: JSON.stringify({
+        username: window.username
+      }),
+      type: 'POST',
+      contentType: 'application/json',
+
+      success: (item) => {
+        console.log('ajax was successful at get request from Database');
+        // var data = JSON.parse(item);
+        // this.setState({
+        //   eventsBar: data.slice(0, 5)
+        // });
+        // console.log(this.state.location, this.state.eventsBar);
+      },
+      error: () => {
+        console.log('ajax failed at get request from Database');
+      }
+    })
   }
 
   render() {
@@ -89,8 +120,8 @@ class userPage extends React.Component {
         </div>
         <br></br>
         <div>
-          <Search eventful={this.getEventful.bind(this)} />
-          <SearchListUser save={this.saveEvent.bind(this)} events={this.state.eventsBar} getEvents = {this.getEventful.bind(this)}/>
+          <Search location={this.state.location} changeLocation ={this.changeLocation.bind(this)} />
+          <SearchListUser retrieveEvents={this.retrieveSavedEvents.bind(this)} save={this.saveEvent.bind(this)} events={this.state.eventsBar} getEvents = {this.getEventful.bind(this)}/>
         </div>
       </div>
     );
