@@ -9,6 +9,10 @@ h1{
   font-family: 'Ubuntu', sans-serif;
 }
 
+.white {
+  color: #E9F1F1;
+}
+
 .wire {
   color: #FF0000;
   font-family: 'Indie Flower', cursive;
@@ -33,7 +37,7 @@ h1{
 }
 
 .titleContainer {
-  background-color: #1B47D0;
+  background-color: #1E90FF;
   color: #E9F1F1;
   font-family: sans-serif, Trebuchet MS;
   /*background-image: url(https://www.dropbox.com/s/o3amlmq9litry9g/banner-377344.jpg?dl=0);*/
@@ -79,7 +83,7 @@ h1{
   border-bottom: solid;
   border-top: none;
   padding-bottom: 10px;
-  background-color: #1B47D0;
+  background-color: #1E90FF;
   font-size: 26px; 
   font-family: sans-serif, Trebuchet MS;
   color:#E9F1F1;
@@ -102,7 +106,8 @@ h1{
 }
 
 .category-tab{
-  background-color: #1B47D0;
+  background-color: #1E90FF;
+  color:#E9F1F1;
   border: 2px solid;
 }
 
