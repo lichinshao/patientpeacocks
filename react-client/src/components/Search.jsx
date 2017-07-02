@@ -31,7 +31,7 @@ class Search extends React.Component {
             <div className="search-container">
               Location:
               <input type="text" placeholder="search by city..." ref={(input) => this.input = input} />
-            <input className="location-submit" type="submit" value="Submit" class="button"/>
+            <input className="location-submit" type="submit" value="Search!" class="button"/>
             </div>
           </form>
         </ButtonToolbar>
