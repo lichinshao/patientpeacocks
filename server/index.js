@@ -138,14 +138,15 @@ app.post('/eventful', function (req, res) {
   // var data = JSON.parse(req.body);
   console.log(req.body);
   var loc = '&l=' + req.body.location.split(' ').join('+');
+  console.log()
   var topic = req.body.topic;
+  console.log(topic);
   var returnData;
   var eventfulOptions = { method: 'GET',
   url: 'http://api.eventful.com/json/events/search',
-  qs: { app_key: 'CwcF9Lt3qkKh4gWB', l: 'san francisco' },
+  qs: { app_key: 'CwcF9Lt3qkKh4gWB', l: 'san francisco', c: topic },
   headers:
    { l: 'san%20francisco',
-     q: topic,
      date: 'future' } };
 
     rp(eventfulOptions).then(function (data) {
@@ -177,7 +178,7 @@ app.post('/eventful', function (req, res) {
           // it is weird but functional
           music: 21,
           food: 10,
-          arts: 1,
+          art: 1,
           books: 18,
           animals: 26,
         }
@@ -225,10 +226,6 @@ app.post('/save', function (req, res) {
   var event = data.event;
   var username = data.username;
   models.users.saveEvent(username, event);
-});
-
-app.get('/meetup', function(req, res) {
-  res.send('get sucessful at meetup');
 });
 
 app.post('', function (req, res) {
