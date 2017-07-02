@@ -108,10 +108,7 @@ class userPage extends React.Component {
           <PageHeader>
             <span className='title'>Event</span><span className='wire'>Wire</span> 
             <Button bsSize="small" className='login'>
-                <Link to='/login' >Login</Link>
-            </Button>
-            <Button bsSize="small" className ='signup'>
-                <Link to='/signUP'>Sign Up</Link>
+                <Link to='/'>Logout</Link>
             </Button>
           </PageHeader>
         </div>
@@ -127,12 +124,5 @@ class userPage extends React.Component {
     );
   }
 }
-/* data: {
-        location: 'san francisco',
-        topic: 'music'
-      },
-      type: 'GET',
-      dataType: 'jsonp',
-*/
 
 export default userPage;
