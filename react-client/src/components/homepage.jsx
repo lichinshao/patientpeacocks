@@ -25,10 +25,12 @@ class homepage extends React.Component {
   }
 
   changeLocation(location) {
+    console.log(location);
     this.setState({
       location: location
     })
-  }
+    console.log(this.state.location);
+}
 
   getEventful(category) {
     console.log(window.username);
@@ -91,7 +93,7 @@ class homepage extends React.Component {
         </div>
         <br></br>
         <div>
-          <Search eventful={this.getEventful.bind(this)} changeLocation ={this.changeLocation.bind(this)} />
+          <Search location={this.state.location} changeLocation ={this.changeLocation.bind(this)} />
           <SearchList save={this.saveEvent.bind(this)} events={this.state.eventsBar} getEvents = {this.getEventful.bind(this)}/>
         </div>
       </div>

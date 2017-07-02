@@ -137,17 +137,14 @@ app.post('/login', passport.authenticate('local', {}),
 app.post('/eventful', function (req, res) {
   // var data = JSON.parse(req.body);
   console.log(req.body);
-  var loc = '&l=' + req.body.location.split(' ').join('+');
-  console.log()
+  var loc = req.body.location;
   var topic = req.body.topic;
-  console.log(topic);
   var returnData;
   var eventfulOptions = { method: 'GET',
   url: 'http://api.eventful.com/json/events/search',
-  qs: { app_key: 'CwcF9Lt3qkKh4gWB', l: 'san francisco', c: topic },
+  qs: { app_key: 'CwcF9Lt3qkKh4gWB', l: loc, c: topic },
   headers:
-   { l: 'san%20francisco',
-     date: 'future' } };
+   {date: 'future' } };
 
     rp(eventfulOptions).then(function (data) {
       var eventData;
