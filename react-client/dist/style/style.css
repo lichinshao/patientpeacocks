@@ -1,11 +1,8 @@
 h1{
-    padding: 0px;
     margin-bottom: 5px;
-    font-size: 48px;
-    margin-left: 20px;
-   
+    font-size: 50px;
+    margin-left: 30px;  
 }
-
 
 .title {
   color: #E9F1F1;
@@ -38,15 +35,15 @@ h1{
 
 .page-header {
   margin: 0px;
-  padding-top: 40px;
+  padding-top: 10px;
 }
 
 .search{
-    margin-left: 10px;
+  margin-left: 20px;
 }
 
 .col9{
-  background-color: #A9DCDE;
+  background-color: #1B47D0;
   padding-right: 0px;
 }
 
@@ -99,15 +96,18 @@ h1{
 }
 
 .category-tab{
-  background-color: #A9DCDE;
+  background-color: #1B47D0;
   border: 2px solid;
-}
-.category-tab.hover{
-  background-color: #CDF9EF;
 }
 
 .search-tab{
   border: 1px solid;
+  color: #E9F1F1;
+  font-family: sans-serif, Lucida Sans Unicode;
+  font-size: 18px;
+}
+.search-text {
+  color: #E9F1F1;
 }
 
 input.location-submit,  .login, .signup {
