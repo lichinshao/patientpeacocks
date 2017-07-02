@@ -30,7 +30,7 @@ class Search extends React.Component {
           <form onSubmit={this.handleSubmit.bind(this)}>
             <div className="search-container">
               Location:
-              <input type="text" placeholder="search by city..." ref={(input) => this.input = input} />
+              <input type="text" placeholder={this.props.location} ref={(input) => this.input = input} />
             <input className="location-submit" type="submit" value="Search!" className="button"/>
             </div>
           </form>
