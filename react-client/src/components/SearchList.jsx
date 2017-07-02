@@ -40,8 +40,8 @@ class SearchList extends React.Component {
               <Tab.Content animation>
               {this.props.events.map((event, index) => (
                   <div key={index}>
-                    
-						        <h4 >{event.name}</h4> 
+
+						        <h4 >{event.name}</h4>
                     <br/>
 						        <h5 >{event.time}</h5>
 						        <h5 >{event.location}</h5>
