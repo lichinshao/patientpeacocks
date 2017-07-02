@@ -29,11 +29,11 @@ class SearchList extends React.Component {
           <Row className="clearfix">
             <Col sm={3} className='col3'>
               <Nav bsStyle="pills" stacked onSelect = {this.searchValue.bind(this)}>
-                <NavItem eventKey={'music'}>Music</NavItem>
-                <NavItem eventKey={'food'}>Food</NavItem>
-                <NavItem eventKey={'arts'}>Arts</NavItem>
-                <NavItem eventKey={'books'}>Books</NavItem>
-                <NavItem eventKey={'animals'}>Animals</NavItem>
+                <NavItem className="category-tab" eventKey={'music'}>Music</NavItem>
+                <NavItem className="category-tab" eventKey={'food'}>Food</NavItem>
+                <NavItem className="category-tab" eventKey={'arts'}>Arts</NavItem>
+                <NavItem className="category-tab" eventKey={'books'}>Books</NavItem>
+                <NavItem className="category-tab" eventKey={'animals'}>Animals</NavItem>
               </Nav>
             </Col>
             <Col sm={9} className = 'col9'>
