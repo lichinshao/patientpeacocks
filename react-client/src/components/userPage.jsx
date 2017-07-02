@@ -74,10 +74,14 @@ class userPage extends React.Component {
     return (
       <div>
         <div className='titleContainer'>
-          <PageHeader className='title'>Event Planner
-            <small className='signup'>
-              <Link to='/'>Logout</Link>
-            </small>
+          <PageHeader>
+            <span className='title'>Event</span><span className='wire'>Wire</span> 
+            <Button bsSize="small" className='login'>
+                <Link to='/login' >Login</Link>
+            </Button>
+            <Button bsSize="small" className ='signup'>
+                <Link to='/signUP'>Sign Up</Link>
+            </Button>
           </PageHeader>
         </div>
         <div>
