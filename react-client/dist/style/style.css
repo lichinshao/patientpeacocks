@@ -1,9 +1,12 @@
 h1{
-    padding: 0px;
     margin-bottom: 5px;
-    font-size: 48px;
-    margin-left: 20px;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 50px;
+    margin-left: 30px;  
+}
+
+.title {
+  color: #E9F1F1;
+  font-family: sans-serif, Trebuchet MS;
 }
 
 .signup{
@@ -24,20 +27,23 @@ h1{
 }
 
 .titleContainer {
-  background-color: lightblue;
+  background-color: #1B47D0;
+  color: #E9F1F1;
+  font-family: sans-serif, Trebuchet MS;
+  /*background-image: url(https://www.dropbox.com/s/o3amlmq9litry9g/banner-377344.jpg?dl=0);*/
 }
 
 .page-header {
   margin: 0px;
-  padding-top: 40px;
+  padding-top: 10px;
 }
 
 .search{
-    margin-left: 10px;
+  margin-left: 20px;
 }
 
 .col9{
-  background-color: lightblue;
+  background-color: #E9F1F1;
   padding-right: 0px;
 }
 
@@ -49,6 +55,75 @@ h1{
   margin-left: 10px;
 }
 
-.loginPage{
-  margin-left: 10px;
+.links{
+  padding-left: 10px;
+  padding-top: 10px;
 }
+
+.loginPage,  .signupPage{
+  height: 40%;
+  width: 30%;
+  border-style: solid;
+  border-width: 1px;
+  margin: 100px 0px 200px 200px;
+}
+
+.login-text {
+  text-align: center; 
+  border-bottom: solid;
+  border-top: none;
+  padding-bottom: 10px;
+  background-color: #1B47D0;
+  font-size: 26px; 
+  font-family: sans-serif, Trebuchet MS;
+  color:#E9F1F1;
+  padding-top: 10px;
+}
+
+.loginpg-text {
+  text-align: center;
+}
+
+.log-button, .sign-button{
+   border-radius: 8px;
+  font-family: sans-serif, Trebuchet MS;
+  background-color: #E9F1F1;
+}
+
+.login-button{
+  text-align: center;
+  padding-top: 10px;
+}
+
+.category-tab{
+  background-color: #1B47D0;
+  border: 2px solid;
+}
+
+.search-tab{
+  border: 1px solid;
+  border-color: black;
+  font-family: sans-serif, Lucida Sans Unicode;
+  font-size: 18px;
+  text-align: center;
+  text-decoration-color: #E9F1F1;
+}
+.search-text {
+  color: #E9F1F1;
+}
+.search-container {
+  font-weight: bold;
+  font-size: 16px;
+}
+.location-submit,  .login, .signup {
+  background-color: #E9F1F1;
+  border-radius: 8px;
+  font-family: sans-serif, Lucida Sans Unicode;
+  font-weight: normal;
+}
+
+
+
+
+
+

@@ -2,6 +2,8 @@ import React from 'react';
 import { Redirect, Link } from 'react-router'
 import $ from 'jquery';
 
+import { Router, Switch, Route, IndexRoute, hashHistory, browserHistory } from 'react-router';
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -30,44 +32,60 @@ class Login extends React.Component {
       success: () => {
         window.username = this.UserPass.name;
         console.log('login was successful');
-        this.setState({
-          redirectToUser: true
-        })
-        if(this.state.redirectToUser) {
-          this.props.router.push('/userpage')
-        }
+        browserHistory.push('/');
+        // this.setState({
+        //   redirectToUser: true
+        // })
+        // if(this.state.redirectToUser) {
+          // this.props.router.push('/userpage')
+        // }
       },
       error: function (err) {
-        console.log('Signup failed', err);
+        console.log('login failed', err);
+        alert('invalid username or password.');
       }
     })
   }
 
+ 
+  
   render() {
+
     return (
       <div className = 'loginPage'>
         <form method="POST" onSubmit={this.handleSubmit.bind(this)}>
-          <h2>Login</h2>
-          <div>
-            <label>
-              Username:
+          <div className="login-text">
+            Login
+          </div>
+          <div className="loginpg-text">
+    
+              Username: <br></br>
               <input type="text" ref={(input) => this.userName = input} />
-            </label>
+            
           </div>
-          <div>
-            <label>
-              Password:
+          <div className="loginpg-text">
+           
+              Password: <br></br>
               <input type="password" ref={(input) => this.password = input} />
-            </label>
+           
           </div>
-          <div>
-            <input type="submit" value="Login!" />
+          <div className="login-button" >
+            <input  type="submit"  className="log-button"  value="Login!" />
           </div>
         </form>
-        <Link to='/signup'>Click here to create an account!</Link>
+        <div className="links">
+          <Link to='/signup'>Click here to create an account!</Link><br></br>
+          <Link to='/'>Back to homepage</Link>
+        </div>
       </div>
     );
   }
 }
 
 export default Login;
+
+
+
+
+
+//style={buttonStyle}
