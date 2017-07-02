@@ -47,32 +47,45 @@ class Login extends React.Component {
     })
   }
 
+ 
+  
   render() {
+
     return (
       <div className = 'loginPage'>
         <form method="POST" onSubmit={this.handleSubmit.bind(this)}>
-          <h2>Login</h2>
-          <div>
-            <label>
-              Username:
+          <div className="login-text">
+            Login
+          </div>
+          <div className="loginpg-text">
+    
+              Username: <br></br>
               <input type="text" ref={(input) => this.userName = input} />
-            </label>
+            
           </div>
-          <div>
-            <label>
-              Password:
+          <div className="loginpg-text">
+           
+              Password: <br></br>
               <input type="password" ref={(input) => this.password = input} />
-            </label>
+           
           </div>
-          <div>
-            <input type="submit"  value="Login!" />
+          <div className="login-button" >
+            <input  type="submit"  className="log-button"  value="Login!" />
           </div>
         </form>
-        <Link to='/signup'>Click here to create an account!</Link><br></br>
-        <Link to='/'>Back to homepage</Link>
+        <div className="links">
+          <Link to='/signup'>Click here to create an account!</Link><br></br>
+          <Link to='/'>Back to homepage</Link>
+        </div>
       </div>
     );
   }
 }
 
 export default Login;
+
+
+
+
+
+//style={buttonStyle}

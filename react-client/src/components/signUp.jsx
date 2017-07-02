@@ -50,25 +50,25 @@ class signUp extends React.Component {
     return (
       <div className = 'signupPage'>
         <form method="POST" onSubmit={this.handleSubmit.bind(this)}>
-          <h2>Sign Up</h2>
-          <div>
-            <label>
-              Username:
-              <input type="text" ref={(input) => this.userName = input} />
-            </label>
+          <div className="login-text">
+            Sign Up
           </div>
-          <div>
-            <label>
-              Password:
-              <input type="text" ref={(input) => this.password = input} />
-            </label>
+          <div className="loginpg-text">
+            Username: <br></br>
+            <input type="text" ref={(input) => this.userName = input} /> 
           </div>
-          <div>
-            <input type="submit" value="Signup!" />
+          <div className="loginpg-text">
+            Password: <br></br>
+            <input type="text" ref={(input) => this.password = input} />
+          </div>
+          <div className="login-button">
+            <input type="submit" value="Signup!" className="log-button"/>
           </div>
         </form>
-        <Link to='/login'>Click here if you have an account!</Link><br></br>
-        <Link to='/'>Back to homepage</Link>
+        <div className="links">
+          <Link to='/login'>Click here if you have an account!</Link><br></br>
+          <Link to='/'>Back to homepage</Link>
+        </div>
       </div>
     );
   }

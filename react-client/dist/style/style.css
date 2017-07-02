@@ -6,8 +6,9 @@ h1{
    
 }
 
+
 .title {
-  color: #F9F9C3;
+  color: #E9F1F1;
   font-family: sans-serif, Futura;
 }
 
@@ -29,8 +30,8 @@ h1{
 }
 
 .titleContainer {
-  background-color: #324B9B;
-  color: #F9F9C3;
+  background-color: #1B47D0;
+  color: #E9F1F1;
   font-family: sans-serif, Futura;
   /*background-image: url(https://www.dropbox.com/s/o3amlmq9litry9g/banner-377344.jpg?dl=0);*/
 }
@@ -57,8 +58,44 @@ h1{
   margin-left: 10px;
 }
 
-.loginPage{
-  margin-left: 10px;
+.links{
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.loginPage,  .signupPage{
+  height: 40%;
+  width: 30%;
+  border-style: solid;
+  border-width: 1px;
+  margin: 100px 0px 200px 200px;
+}
+
+.login-text {
+  text-align: center; 
+  border-bottom: solid;
+  border-top: none;
+  padding-bottom: 10px;
+  background-color: #1B47D0;
+  font-size: 26px; 
+  font-family: sans-serif, Lucida Sans Unicode;
+  color:#E9F1F1;
+  padding-top: 10px;
+}
+
+.loginpg-text {
+  text-align: center;
+}
+
+.log-button, .sign-button{
+   border-radius: 8px;
+  font-family: sans-serif, Lucida Sans Unicode;
+  background-color: #E9F1F1;
+}
+
+.login-button{
+  text-align: center;
+  padding-top: 10px;
 }
 
 .category-tab{
@@ -74,14 +111,9 @@ h1{
 }
 
 input.location-submit,  .login, .signup {
-  background-color: #A9DCDE;
+  background-color: #E9F1F1;
   border-radius: 8px;
   font-family: sans-serif, Lucida Sans Unicode;
-}
-
-.sign-button {
-  background-color: #A9DCDE;
-  border-radius: 8px;
 }
 
 
