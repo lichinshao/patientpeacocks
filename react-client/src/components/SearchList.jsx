@@ -28,12 +28,12 @@ class SearchList extends React.Component {
         <Tab.Container id="left-tabs-example" defaultActiveKey="first">
           <Row className="clearfix">
             <Col sm={3} className='col3'>
-              <Nav bsStyle="pills" stacked onSelect = {this.searchValue.bind(this)}>
-                <NavItem eventKey={'music'}>Music</NavItem>
-                <NavItem eventKey={'food'}>Food</NavItem>
-                <NavItem eventKey={'arts'}>Arts</NavItem>
-                <NavItem eventKey={'books'}>Books</NavItem>
-                <NavItem eventKey={'animals'}>Animals</NavItem>
+              <Nav bsStyle="pills" className="category-tab" stacked onSelect = {this.searchValue.bind(this)}>
+                <NavItem  className="search-tab" eventKey={'music'}>Music</NavItem>
+                <NavItem  className="search-tab" eventKey={'food'}>Food</NavItem>
+                <NavItem  className="search-tab" eventKey={'arts'}>Arts</NavItem>
+                <NavItem  className="search-tab" eventKey={'books'}>Books</NavItem>
+                <NavItem  className="search-tab" eventKey={'animals'}>Animals</NavItem>
               </Nav>
             </Col>
             <Col sm={9} className = 'col9'>
