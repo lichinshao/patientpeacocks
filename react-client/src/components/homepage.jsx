@@ -80,7 +80,7 @@ class homepage extends React.Component {
             <Button bsSize="small" className='login'>
                 <Link to='/login' >Login</Link>
             </Button>
-            <Button bsSize="small" className = 'signup'>
+            <Button bsSize="small" className ='signup'>
                 <Link to='/signUP'>Sign Up</Link>
             </Button>
           </PageHeader>
