@@ -5,12 +5,14 @@ import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
+import WelcomeNote from './WelcomeNote.jsx';
 class SearchList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       value: '',
-      tabList: ['music', 'food', 'arts', 'books', 'animals']
+      tabList: ['music', 'food', 'arts', 'books', 'animals'],
+      welcome: true
     }
   }
 
@@ -20,6 +22,7 @@ class SearchList extends React.Component {
 
   searchValue(event) {
     this.props.getEvents(event);
+    this.state.welcome = false; 
   }
 
   render() {
@@ -38,6 +41,7 @@ class SearchList extends React.Component {
             </Col>
             <Col sm={9} className = 'col9'>
               <Tab.Content animation>
+              {this.state.welcome ? <WelcomeNote/> : null}
               {this.props.events.map((event, index) => (
                   <div key={index}>
 
