@@ -65,7 +65,7 @@ class Login extends React.Component {
             </label>
           </div>
           <div>
-            <input type="submit" value="Login!" />
+            <input type="submit"  value="Login!" />
           </div>
         </form>
         <Link to='/signup'>Click here to create an account!</Link><br></br>

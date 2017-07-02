@@ -3,7 +3,12 @@ h1{
     margin-bottom: 5px;
     font-size: 48px;
     margin-left: 20px;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+   
+}
+
+.title {
+  color: #F9F9C3;
+  font-family: sans-serif, Futura;
 }
 
 .signup{
@@ -24,7 +29,10 @@ h1{
 }
 
 .titleContainer {
-  background-color: lightblue;
+  background-color: #324B9B;
+  color: #F9F9C3;
+  font-family: sans-serif, Futura;
+  /*background-image: url(https://www.dropbox.com/s/o3amlmq9litry9g/banner-377344.jpg?dl=0);*/
 }
 
 .page-header {
@@ -37,7 +45,7 @@ h1{
 }
 
 .col9{
-  background-color: lightblue;
+  background-color: #A9DCDE;
   padding-right: 0px;
 }
 
@@ -54,5 +62,30 @@ h1{
 }
 
 .category-tab{
-  background-color: #2FD1C9;
+  background-color: #A9DCDE;
+  border: 2px solid;
 }
+.category-tab.hover{
+  background-color: #CDF9EF;
+}
+
+.search-tab{
+  border: 1px solid;
+}
+
+input.location-submit,  .login, .signup {
+  background-color: #A9DCDE;
+  border-radius: 8px;
+  font-family: sans-serif, Lucida Sans Unicode;
+}
+
+.sign-button {
+  background-color: #A9DCDE;
+  border-radius: 8px;
+}
+
+
+
+
+
+
