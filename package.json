@@ -10,7 +10,8 @@
     "dev": "webpack -d --watch",
     "build": "webpack -p",
     "server-dev": "nodemon server/index.js",
-    "test": "jest"
+    "test": "jest",
+    "start": "node server/index.js"
   },
   "dependencies": {
     "babel": "^6.23.0",
@@ -18,7 +19,7 @@
     "bcrypt": "^1.0.2",
     "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
-    "express": "4.15.3",
+    "express": "^4.15.3",
     "jquery": "^3.2.1",
     "meetup-api": "^1.4.20",
     "nodemon": "^1.11.0",

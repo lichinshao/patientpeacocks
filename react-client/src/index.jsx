@@ -26,5 +26,5 @@ const notFound = () => {
     <h1>404... This page is not found</h1>
   )
 };
-
+window.username = '';
 ReactDOM.render(<App />, document.getElementById('app'))

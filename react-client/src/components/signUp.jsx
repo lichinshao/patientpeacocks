@@ -30,6 +30,7 @@ class signUp extends React.Component {
       contentType: 'application/json',
       data: JSON.stringify(this.UserPass),
       success: () => {
+        window.username = this.UserPass.name;
         console.log('Signup was successful');
         this.setState({
           redirectToUser: true
@@ -67,6 +68,7 @@ class signUp extends React.Component {
           </div>
         </form>
         <Link to='/login'>Click here if you have an account!</Link>
+        <Link to='/'>Back to homepage</Link>
       </div>
     );
   }

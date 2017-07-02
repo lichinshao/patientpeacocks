@@ -30,6 +30,7 @@ class Login extends React.Component {
       contentType: 'application/json',
       data: JSON.stringify(this.UserPass),
       success: () => {
+        window.username = this.UserPass.name;
         console.log('login was successful');
         browserHistory.push('/');
         // this.setState({
@@ -67,7 +68,8 @@ class Login extends React.Component {
             <input type="submit" value="Login!" />
           </div>
         </form>
-        
+        <Link to='/signup'>Click here to create an account!</Link>
+        <Link to='/'>Back to homepage</Link>
       </div>
     );
   }

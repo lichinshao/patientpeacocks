@@ -19,7 +19,8 @@ class homepage extends React.Component {
     this.state = {
       eventsBar: [],
       loaded: false,
-      location: 'san francisco'
+      location: 'san francisco',
+      username: ''
     }
   }
 
@@ -30,6 +31,7 @@ class homepage extends React.Component {
   }
 
   getEventful(category) {
+    console.log(window.username);
     $.ajax({
       url: '/eventful',
       data: JSON.stringify({
@@ -53,18 +55,21 @@ class homepage extends React.Component {
   }
 
   saveEvent(event) {
-    console.log('Event', event);
-    $.ajax({
-      url: '/save',
-      data: JSON.stringify({
-        event: event
-      }),
-      contentType: 'application/json',
-      type: 'POST',
-      success: () => {
-        console.log('Saved Event Properly');
-      }
-    })
+    console.log(event, window.username)
+    if(window.username !== '') {
+      $.ajax({
+        url: '/save',
+        data: JSON.stringify({
+          event: event,
+          username: window.username
+        }),
+        contentType: 'application/json',
+        type: 'POST',
+        success: () => {
+          console.log('Saved Event Properly');
+        }
+      })
+    }
   }
 
   render() {
