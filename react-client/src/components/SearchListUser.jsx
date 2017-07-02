@@ -42,7 +42,7 @@ class SearchListUser extends React.Component {
               <Tab.Content animation>
               {this.props.events.map((event, index) => (
                   <div key={index}>
-                    
+
 						        <h4 >{event.name}</h4> 
                     <br/>
 						        <h5 >{event.time}</h5>
@@ -52,6 +52,7 @@ class SearchListUser extends React.Component {
                     <br/>
                     <a href={ event.url } >{event.name}</a>
                     <br/>
+                    
 					        </div>
               ))}
               </Tab.Content>

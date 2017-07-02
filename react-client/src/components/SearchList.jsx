@@ -31,7 +31,7 @@ class SearchList extends React.Component {
               <Nav bsStyle="pills" className="category-tab" stacked onSelect = {this.searchValue.bind(this)}>
                 <NavItem  className="search-tab" eventKey={'music'}>Music</NavItem>
                 <NavItem  className="search-tab" eventKey={'food'}>Food</NavItem>
-                <NavItem  className="search-tab" eventKey={'arts'}>Arts</NavItem>
+                <NavItem  className="search-tab" eventKey={'art'}>Arts</NavItem>
                 <NavItem  className="search-tab" eventKey={'books'}>Books</NavItem>
                 <NavItem  className="search-tab" eventKey={'animals'}>Animals</NavItem>
               </Nav>
