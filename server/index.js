@@ -222,11 +222,17 @@ app.post('/save', function (req, res) {
   var data = req.body;
   var event = data.event;
   var username = data.username;
-  models.users.saveEvent(username, event);
+  console.log('USERNAME', username, 'Event', event);
+  models.saveEvent(username, event);
 });
 
-app.post('', function (req, res) {
-});
+app.post('/savedEvents', function(req, res) {
+  var username = req.body.username;
+  console.log(username);
+  var events = models.getUsersEvents(username);
+  // res.write(events);
+  res.end();
+})
 
 var port = process.env.PORT || 3000;
 
