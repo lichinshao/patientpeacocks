@@ -3,11 +3,11 @@ const pgs = require('pg');
 
 pgs.defaults.ssl = true;
 const connection = {
-  host: 'localhost',
-  port: process.env.PORT || 3000,
-  database: 'events_app',
-  user: 'postgres',
-  password: 'meow2meow'
+  host: 'ec2-23-23-222-147.compute-1.amazonaws.com',
+  port: process.env.PORT || 5432,
+  database: 'dpd0sg8kgct09',
+  user: 'qbzvgvuvdevbhj',
+  password: 'd8d57b137756bc3b7029b3531c69e562285752ea2b1a066c1ec4e8596ad93837'
 }
 
 
