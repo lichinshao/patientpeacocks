@@ -6,7 +6,12 @@ h1{
 
 .title {
   color: #E9F1F1;
-  font-family: sans-serif, Trebuchet MS;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.wire {
+  color: #FF0000;
+  font-family: 'Indie Flower', cursive;
 }
 
 .signup{
@@ -24,6 +29,7 @@ h1{
 .carousel {
   height:300px;
   margin: auto;
+  overflow: hidden;
 }
 
 .titleContainer {

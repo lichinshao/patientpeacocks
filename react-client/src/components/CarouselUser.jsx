@@ -25,24 +25,18 @@ class CarouselPageUser extends React.Component {
     return (
       <Carousel className = 'carousel' activeIndex={this.state.index} direction={this.state.direction} onSelect={this.handleSelect.bind(this)}>
         <Carousel.Item>
-          <img width={300} height={1000} alt="300x1000" src="http://orig01.deviantart.net/a688/f/2014/357/f/a/troll_head_by_imfanof-d8axvxn.png" />
+          <img width={2000} height={2000} alt="2000x2000" src="http://specialevents.livenation.com/images/home_slideshow/Fillmore-NYE-09-40.jpg" />
           <Carousel.Caption>
-            <h3>hehe</h3>
-            <p>Cute puppy</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img width={300} height={1000} alt="300x1000" src="http://orig01.deviantart.net/a688/f/2014/357/f/a/troll_head_by_imfanof-d8axvxn.png" />
+          <img width={2000} height={2000} alt="2000x2000" src="http://www.visitdenmark.com/sites/default/files/styles/block_ratio/public/vdk_images/Attractions-Activities-interest-accommodation-people-geo/Events/Sporting-events/color-run-credit-colorrun.dk.jpg?itok=udG3wZA3" />
           <Carousel.Caption>
-            <h3>hehehe</h3>
-            <p>hi pupppy</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img width={300} height={1000} alt="300x1000" src="http://orig01.deviantart.net/a688/f/2014/357/f/a/troll_head_by_imfanof-d8axvxn.png" />
+          <img width={2000} height={2000} alt="2000x2000" alt="300x1000" src="http://cdn.funcheap.com/wp-content/uploads/2014/07/fireworks21.jpg" />
           <Carousel.Caption>
-            <h3>hehehehe</h3>
-            <p>another puppy</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
