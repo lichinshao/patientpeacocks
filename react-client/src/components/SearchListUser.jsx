@@ -5,12 +5,14 @@ import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
+import WelcomeNote from './WelcomeNote.jsx';
 class SearchListUser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       value: '',
-      tabList: ['music', 'food', 'arts', 'books', 'animals']
+      tabList: ['music', 'food', 'arts', 'books', 'animals'],
+      welcome: true
     }
   }
 
@@ -21,28 +23,29 @@ class SearchListUser extends React.Component {
   searchValue(event) {
     console.log(event);
     this.props.getEvents(event);
+    this.state.welcome = false; 
   }
 
   render() {
     return (
       <div>
-        <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+       <Tab.Container id="left-tabs-example" defaultActiveKey="first">
           <Row className="clearfix">
-            <Col sm={4}>
-              <Nav bsStyle="pills" stacked onSelect = {this.searchValue.bind(this)}>
-                <NavItem eventKey={'saved'}>Saved</NavItem>
-                <NavItem eventKey={'music'}>Music</NavItem>
-                <NavItem eventKey={'food'}>Food</NavItem>
-                <NavItem eventKey={'arts'}>Arts</NavItem>
-                <NavItem eventKey={'books'}>Books</NavItem>
-                <NavItem eventKey={'animals'}>Animals</NavItem>
+            <Col sm={3} className='col3'>
+                <Nav bsStyle="pills" className="category-tab" stacked onSelect = {this.searchValue.bind(this)}>
+                <NavItem  className="search-tab" eventKey={'saved'}>Saved</NavItem>
+                <NavItem  className="search-tab" eventKey={'music'}>Music</NavItem>
+                <NavItem  className="search-tab" eventKey={'food'}>Food</NavItem>
+                <NavItem  className="search-tab" eventKey={'arts'}>Arts</NavItem>
+                <NavItem  className="search-tab" eventKey={'books'}>Books</NavItem>
+                <NavItem  className="search-tab" eventKey={'animals'}>Animals</NavItem>
               </Nav>
             </Col>
-            <Col sm={8} >
+            <Col sm={9} className = 'col9'>
               <Tab.Content animation>
               {this.props.events.map((event, index) => (
                   <div key={index}>
-                    
+
 						        <h4 >{event.name}</h4> 
                     <br/>
 						        <h5 >{event.time}</h5>
@@ -52,12 +55,16 @@ class SearchListUser extends React.Component {
                     <br/>
                     <a href={ event.url } >{event.name}</a>
                     <br/>
+                    
 					        </div>
               ))}
               </Tab.Content>
             </Col>
           </Row>
         </Tab.Container>
+      <div>
+       {this.state.welcome ? <WelcomeNote/> : null}
+      </div>
       </div>
     )
   }
