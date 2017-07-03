@@ -21,32 +21,6 @@ app.use(passport.session());
 
 app.use(express.static(__dirname + '/../react-client/dist'));
 
-var database = {
-  username: 'david',
-  password: 'sucks'
-};
-
-passport.serializeUser(function (user, done) {
-  done(null, user);
-});
-
-passport.deserializeUser(function (user, done) {
-  done(null, user);
-});
-
-passport.use(new LocalStrategy({
-  usernameField: 'username',
-  passwordField: 'password',
-  session: false
-},
-  function (username, password, done) {
-    console.log(username, password);
-    if (username === database.username) {
-      return done(null, database);
-    }
-  }
-));
-
 app.get('/', function (req, res) {
   res.sendStatus(200);
 })
@@ -90,18 +64,23 @@ app.post('/login', function (req, res) {
   // console.log(hash);
   db.query(`select salt from users where name = '${req.body.name}'`)
     .then((saltlogin) => {
-      var hashlogin = bcrypt.hashSync(req.body.password, saltlogin);
+      console.log('this is the saltlogin data', saltlogin[0].salt);
+      var hashlogin = bcrypt.hashSync(req.body.password, saltlogin[0].salt);
       db.query(`select * from users where name = '${req.body.name}'`).
         then((user) => {
+          console.log('this is the user', user);
           if (user) {
+            console.log('user pass', user[0].password, 'input pass', hashlogin);
             if (user[0].password === hashlogin) {
-              res.write(req.body);
               res.end('successful login');
+
             }
           } else {
             res.writeHead(403, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ message: 'user doesn\'t exist or password is incorrect' }));
           }
+        }).catch((err) => {
+          console.log('ERRROR at login', err);
         })
     })
 })
@@ -109,22 +88,6 @@ app.post('/login', function (req, res) {
 app.get('/login', function (req, res) {
   res.render('login');
 })
-
-
-/*
-verifies password: this will return a boolean (true if pswd matches)
-auth.hash('password', function (err, hashed) {
-  auth.verify('password', hashed, function(err, verified) {
-    console.log(verified);
-  })
-})
-*/
-// passport.authenticate('local', {
-//                                 successRedirect: '/',
-//                                 failureRedirect: '/login',
-//                                 failureFlash: 'Invalid username or password.',
-//                                 successFlash: 'Welcome!' })
-// );
 
 
 app.post('/eventful', function (req, res) {
