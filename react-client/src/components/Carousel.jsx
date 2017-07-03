@@ -35,7 +35,7 @@ class CarouselPage extends React.Component {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img width={1500} height={0} alt="300x1000" src="http://www.essentialibiza.com/assets/img/ibiza-boat-party-tickets-images/oceanbeat-ibiza-boat-party-show-with-after-party-in-bora-bora-ibiza-1.jpg" />
+          <img width={1500} height={0} alt="300x1000" src="https://farm2.static.flickr.com/1587/24802913143_b48dcc87b4_b.jpg" />
           <Carousel.Caption>
           </Carousel.Caption>
         </Carousel.Item>
