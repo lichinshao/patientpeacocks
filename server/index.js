@@ -7,7 +7,6 @@ var LocalStrategy = require('passport-local').Strategy;
 var auth = require('passport-local-authenticate');
 var db = require('./database');
 var bcrypt = require('bcrypt');
-var salt = bcrypt.genSaltSync(10);
 var app = express();
 var rp = require('request-promise');
 
@@ -57,9 +56,7 @@ app.get('/register', function (req, res) {
 })
 
 app.post('/register', function (req, res) {
-  // auth.hash(req.body.password, function(err, hashed) {
-  //   console.log(hashed.hash);
-  //   console.log(hashed.salt);
+  var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(req.body.password, salt);
 
   db.query(`select * from users where name = '${req.body.name}'`).
@@ -93,7 +90,7 @@ app.post('/login', function (req, res) {
   // console.log(hash);
   db.query(`select salt from users where name = '${req.body.name}'`)
     .then((saltlogin) => {
-      var hashlogin = bcrypt.hashSync(req.body.passpord, saltlogin);
+      var hashlogin = bcrypt.hashSync(req.body.password, saltlogin);
       db.query(`select * from users where name = '${req.body.name}'`).
         then((user) => {
           if (user) {
