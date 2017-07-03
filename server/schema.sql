@@ -25,6 +25,7 @@ CREATE TABLE users (
   id serial PRIMARY KEY,
   name VARCHAR(20) NOT NULL,
   password TEXT NOT NULL,
+  salt VARCHAR(100) NOT NULL,
   UNIQUE (name)
 );
 
@@ -45,10 +46,10 @@ CREATE TABLE users_events (
   eventId serial REFERENCES events (id)
 );
 
-INSERT INTO users (name, password) VALUES ('julia', 'hellowpass');
-INSERT INTO users (name, password) VALUES ('jey', 'mypassword');
-INSERT INTO users (name, password) VALUES ('kevin', 'heypass');
-INSERT INTO users (name, password) VALUES ('li', 'password123');
+INSERT INTO users (name, password, salt) VALUES ('julia', 'hellowpass', 'salt1');
+INSERT INTO users (name, password, salt) VALUES ('jey', 'mypassword', 'salt2');
+INSERT INTO users (name, password, salt) VALUES ('kevin', 'heypass', 'salt3');
+INSERT INTO users (name, password, salt) VALUES ('li', 'password123', 'salt4');
 
 
 

@@ -76,7 +76,6 @@ app.post('/register', function (req, res) {
           .catch(error => {
             res.end(JSON.stringify(error));
           })
-
       }
     })
     .catch(error => {

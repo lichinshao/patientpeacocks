@@ -23,7 +23,7 @@ class SearchListUser extends React.Component {
   searchValue(event) {
     console.log(event);
     this.props.getEvents(event);
-    this.state.welcome = false; 
+    this.state.welcome = false;
   }
 
   render() {
@@ -46,7 +46,7 @@ class SearchListUser extends React.Component {
               {this.props.events.map((event, index) => (
                   <div key={index}>
 
-						        <h4 >{event.name}</h4> 
+						        <h4 >{event.name}</h4>
                     <br/>
 						        <h5 >{event.time}</h5>
 						        <h5 >{event.location}</h5>
@@ -55,7 +55,7 @@ class SearchListUser extends React.Component {
                     <br/>
                     <a href={ event.url } >{event.name}</a>
                     <br/>
-                    
+
 					        </div>
               ))}
               </Tab.Content>
