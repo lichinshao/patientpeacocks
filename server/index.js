@@ -7,7 +7,6 @@ var LocalStrategy = require('passport-local').Strategy;
 var auth = require('passport-local-authenticate');
 var db = require('./database');
 var bcrypt = require('bcrypt');
-var salt = bcrypt.genSaltSync(10);
 var app = express();
 var rp = require('request-promise');
 
@@ -31,6 +30,7 @@ app.get('/register', function (req, res) {
 })
 
 app.post('/register', function (req, res) {
+  var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(req.body.password, salt);
 
   db.query(`select * from users where name = '${req.body.name}'`).
@@ -39,7 +39,7 @@ app.post('/register', function (req, res) {
       if (users.length) {
         res.end('User already exists!');
       } else {
-        db.query(`INSERT INTO users (name, password, salt) VALUES ('${req.body.name}', '${hash}'), ${salt}`).
+        db.query(`INSERT INTO users (name, password, salt) VALUES ('${req.body.name}', '${hash}', '${salt}')`).
           then((users) => {
             res.end();
             //where we will pass the token back inside res.end
@@ -64,17 +64,23 @@ app.post('/login', function (req, res) {
   // console.log(hash);
   db.query(`select salt from users where name = '${req.body.name}'`)
     .then((saltlogin) => {
-      var hashlogin = bcrypt.hashSync(req.body.passpord, saltlogin);
+      console.log('this is the saltlogin data', saltlogin[0].salt);
+      var hashlogin = bcrypt.hashSync(req.body.password, saltlogin[0].salt);
       db.query(`select * from users where name = '${req.body.name}'`).
         then((user) => {
+          console.log('this is the user', user);
           if (user) {
+            console.log('user pass', user[0].password, 'input pass', hashlogin);
             if (user[0].password === hashlogin) {
               res.end('successful login');
+
             }
           } else {
             res.writeHead(403, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ message: 'user doesn\'t exist or password is incorrect' }));
           }
+        }).catch((err) => {
+          console.log('ERRROR at login', err);
         })
     })
 })
