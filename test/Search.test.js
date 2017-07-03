@@ -5,9 +5,9 @@ import renderer from 'react-test-renderer';
 import toJson from 'enzyme-to-json';
 import { shallow } from 'enzyme';
 
-describe('Component: App', () => {
-  const items = ['Learn react', 'rest', 'go out'];
 
+describe('Component: Search', () => {
+  
   it('should match its empty snapshot', () => {
     const tree = renderer.create(
       <Search />

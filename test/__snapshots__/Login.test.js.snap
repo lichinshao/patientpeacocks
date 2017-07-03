@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: App should match its empty snapshot 1`] = `
+<div
+  className="loginPage"
+>
+  <form
+    method="POST"
+    onSubmit={[Function]}
+  >
+    <div
+      className="login-text"
+    >
+      Login
+    </div>
+    <div
+      className="loginpg-text"
+    >
+      Username: 
+      <br />
+      <input
+        type="text"
+      />
+    </div>
+    <div
+      className="loginpg-text"
+    >
+      Password: 
+      <br />
+      <input
+        type="password"
+      />
+    </div>
+    <div
+      className="login-button"
+    >
+      <input
+        className="log-button"
+        type="submit"
+        value="Login!"
+      />
+    </div>
+  </form>
+  <div
+    className="links"
+  >
+    <a
+      onClick={[Function]}
+      style={Object {}}
+    >
+      Click here to create an account!
+    </a>
+    <br />
+    <a
+      onClick={[Function]}
+      style={Object {}}
+    >
+      Back to homepage
+    </a>
+  </div>
+</div>
+`;
