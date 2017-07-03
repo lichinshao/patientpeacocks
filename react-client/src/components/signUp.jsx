@@ -54,12 +54,12 @@ class signUp extends React.Component {
             Sign Up
           </div>
           <div className="loginpg-text">
-            Username: <br></br>
+            Username: <br></br> 
             <input type="text" ref={(input) => this.userName = input} /> 
           </div>
           <div className="loginpg-text">
             Password: <br></br>
-            <input type="text" ref={(input) => this.password = input} />
+            <input type="password" ref={(input) => this.password = input} />
           </div>
           <div className="login-button">
             <input type="submit" value="Signup!" className="log-button"/>
