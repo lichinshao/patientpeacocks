@@ -22,32 +22,6 @@ app.use(passport.session());
 
 app.use(express.static(__dirname + '/../react-client/dist'));
 
-var database = {
-  username: 'david',
-  password: 'sucks'
-};
-
-passport.serializeUser(function (user, done) {
-  done(null, user);
-});
-
-passport.deserializeUser(function (user, done) {
-  done(null, user);
-});
-
-passport.use(new LocalStrategy({
-  usernameField: 'username',
-  passwordField: 'password',
-  session: false
-},
-  function (username, password, done) {
-    console.log(username, password);
-    if (username === database.username) {
-      return done(null, database);
-    }
-  }
-));
-
 app.get('/', function (req, res) {
   res.sendStatus(200);
 })
@@ -57,9 +31,6 @@ app.get('/register', function (req, res) {
 })
 
 app.post('/register', function (req, res) {
-  // auth.hash(req.body.password, function(err, hashed) {
-  //   console.log(hashed.hash);
-  //   console.log(hashed.salt);
   var hash = bcrypt.hashSync(req.body.password, salt);
 
   db.query(`select * from users where name = '${req.body.name}'`).
@@ -98,7 +69,6 @@ app.post('/login', function (req, res) {
         then((user) => {
           if (user) {
             if (user[0].password === hashlogin) {
-              res.write(req.body);
               res.end('successful login');
             }
           } else {
@@ -112,22 +82,6 @@ app.post('/login', function (req, res) {
 app.get('/login', function (req, res) {
   res.render('login');
 })
-
-
-/*
-verifies password: this will return a boolean (true if pswd matches)
-auth.hash('password', function (err, hashed) {
-  auth.verify('password', hashed, function(err, verified) {
-    console.log(verified);
-  })
-})
-*/
-// passport.authenticate('local', {
-//                                 successRedirect: '/',
-//                                 failureRedirect: '/login',
-//                                 failureFlash: 'Invalid username or password.',
-//                                 successFlash: 'Welcome!' })
-// );
 
 
 app.post('/eventful', function (req, res) {
