@@ -62,9 +62,6 @@ class SearchListUser extends React.Component {
             </Col>
           </Row>
         </Tab.Container>
-      <div>
-       {this.state.welcome ? <WelcomeNote/> : null}
-      </div>
       </div>
     )
   }
