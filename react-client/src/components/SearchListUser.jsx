@@ -41,7 +41,7 @@ class SearchListUser extends React.Component {
                 <NavItem  className="search-tab white" eventKey={'animals'} onSelect = {this.searchValue.bind(this)} >Animals</NavItem>
               </Nav>
             </Col>
-            <Col sm={9} className = 'col9'>
+            <Col sm={6} className = 'col9'>
               <Tab.Content animation>
               {this.props.events.map((event, index) => (
                   <div key={index}>

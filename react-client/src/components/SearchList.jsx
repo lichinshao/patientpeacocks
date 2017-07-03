@@ -39,7 +39,7 @@ class SearchList extends React.Component {
                 <NavItem  className="search-tab" eventKey={'animals'}>Animals</NavItem>
               </Nav>
             </Col>
-            <Col sm={9} className = 'col9'>
+            <Col sm={6} className = 'col9'>
               <Tab.Content animation>
               {this.state.welcome ? <WelcomeNote/> : null}
               {this.props.events.map((event, index) => (
