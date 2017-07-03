@@ -3,7 +3,7 @@
 /* connect schema to heroku
 heroku pg:psql postgresql-transparent-46296 --app eventwire < server/schema.sql;
 
-drop schema events_app cascade;*/
+drop schema public cascade;*/
 
 /* Use this one to connect
 psql -U postgres < server/schema.sql
@@ -15,20 +15,20 @@ psql postgres -d events_app -f server/schema.sql*/
 -- CREATE DATABASE events_app;
 -- \c events_app;
 DROP SCHEMA if exists event_app CASCADE;
-CREATE SCHEMA events_app AUTHORIZATION qbzvgvuvdevbhj;
+-- CREATE SCHEMA public AUTHORIZATION qbzvgvuvdevbhj;
 
 DROP TABLE if exists users;
 DROP TABLE if exists events;
 DROP TABLE if exists users_events;
 
-CREATE TABLE events_app.users (
+CREATE TABLE users (
   id serial PRIMARY KEY,
   name VARCHAR(20) NOT NULL,
   password TEXT NOT NULL,
   UNIQUE (name)
 );
 
-CREATE TABLE events_app.events (
+CREATE TABLE events (
   id serial PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
   dateAndTime VARCHAR(50) NOT NULL,
@@ -40,9 +40,9 @@ CREATE TABLE events_app.events (
 );
 
 
-CREATE TABLE events_app.users_events (
-  userId serial REFERENCES events_app.users (id),
-  eventId serial REFERENCES events_app.events (id)
+CREATE TABLE users_events (
+  userId serial REFERENCES users (id),
+  eventId serial REFERENCES events (id)
 );
 
 -- INSERT INTO users (name, password) VALUES ('julia', 'hellowpass');
