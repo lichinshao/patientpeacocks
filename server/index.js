@@ -98,6 +98,7 @@ app.post('/login', function (req, res) {
           if (user) {
             console.log('user pass', user[0].password, 'input pass', hashlogin);
             if (user[0].password === hashlogin) {
+              console.log('this happened');
               res.write(req.body);
               res.end('successful login');
             }
