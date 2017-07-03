@@ -41,7 +41,6 @@ class CarouselPage extends React.Component {
         </Carousel.Item>
       </Carousel>
     );
-    //TESTING WEB PACK
   }
 }
 export default CarouselPage;
