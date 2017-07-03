@@ -35,7 +35,7 @@ class CarouselPageUser extends React.Component {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img width={2000} height={2000} alt="2000x2000" alt="300x1000" src="http://alabamajubilee.net/img/pics/barryPanorama.jpg" />
+          <img width={2000} height={2000} alt="2000x2000" alt="300x1000" src="https://www.marivineyards.com/assets/images/tasting-room-hd-1.jpg" />
           <Carousel.Caption>
           </Carousel.Caption>
         </Carousel.Item>
