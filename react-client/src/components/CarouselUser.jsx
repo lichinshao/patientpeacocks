@@ -25,12 +25,12 @@ class CarouselPageUser extends React.Component {
     return (
       <Carousel className = 'carousel' activeIndex={this.state.index} direction={this.state.direction} onSelect={this.handleSelect.bind(this)}>
         <Carousel.Item>
-          <img width={2000} height={2000} alt="2000x2000" src="http://specialevents.livenation.com/images/home_slideshow/Fillmore-NYE-09-40.jpg" />
+          <img width={2000} height={2000} alt="2000x2000" src="https://voltcommerce.com/news/wp-content/uploads/2014/04/Coachella_Night_Pano_2-FINAL_Flat.jpg" />
           <Carousel.Caption>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img width={2000} height={2000} alt="2000x2000" src="http://www.visitdenmark.com/sites/default/files/styles/block_ratio/public/vdk_images/Attractions-Activities-interest-accommodation-people-geo/Events/Sporting-events/color-run-credit-colorrun.dk.jpg?itok=udG3wZA3" />
+          <img width={2000} height={2000} alt="2000x2000" src="http://www.launchphotography.com/AT_T_Park_Panorama.jpg" />
           <Carousel.Caption>
           </Carousel.Caption>
         </Carousel.Item>
