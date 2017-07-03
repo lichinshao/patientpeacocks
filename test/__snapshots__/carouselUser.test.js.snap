@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: App should match its empty snapshot 1`] = `
+<div
+  className="carousel carousel slide"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <ol
+    className="carousel-indicators"
+  >
+    <li
+      className="active"
+      onClick={[Function]}
+    />
+     
+    <li
+      className={null}
+      onClick={[Function]}
+    />
+     
+    <li
+      className={null}
+      onClick={[Function]}
+    />
+     
+  </ol>
+  <div
+    className="carousel-inner"
+  >
+    <div
+      className="item active"
+    >
+      <img
+        alt="2000x2000"
+        height={2000}
+        src="https://voltcommerce.com/news/wp-content/uploads/2014/04/Coachella_Night_Pano_2-FINAL_Flat.jpg"
+        width={2000}
+      />
+      <div
+        className="carousel-caption"
+      />
+    </div>
+    <div
+      className="item"
+    >
+      <img
+        alt="2000x2000"
+        height={2000}
+        src="http://www.launchphotography.com/AT_T_Park_Panorama.jpg"
+        width={2000}
+      />
+      <div
+        className="carousel-caption"
+      />
+    </div>
+    <div
+      className="item"
+    >
+      <img
+        alt="300x1000"
+        height={2000}
+        src="http://cdn.funcheap.com/wp-content/uploads/2014/07/fireworks21.jpg"
+        width={2000}
+      />
+      <div
+        className="carousel-caption"
+      />
+    </div>
+  </div>
+  <a
+    className="carousel-control left"
+    href="#"
+    onClick={[Function]}
+    role="button"
+  >
+    <span
+      className="glyphicon glyphicon-chevron-left"
+    />
+    <span
+      className="sr-only"
+    >
+      Previous
+    </span>
+  </a>
+  <a
+    className="carousel-control right"
+    href="#"
+    onClick={[Function]}
+    role="button"
+  >
+    <span
+      className="glyphicon glyphicon-chevron-right"
+    />
+    <span
+      className="sr-only"
+    >
+      Next
+    </span>
+  </a>
+</div>
+`;
