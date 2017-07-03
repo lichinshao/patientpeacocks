@@ -239,7 +239,7 @@ app.post('/savedEvents', function(req, res) {
       res.write(JSON.stringify(events));
       res.end();
     } );
-  
+
 })
 
 var port = process.env.PORT || 3000;

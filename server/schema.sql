@@ -1,4 +1,9 @@
-DROP DATABASE IF EXISTS events_app;
+-- DROP DATABASE IF EXISTS events_app;
+
+/* connect schema to heroku
+heroku pg:psql postgresql-transparent-46296 --app eventwire < server/schema.sql;
+
+drop schema public cascade;*/
 
 /* Use this one to connect
 psql -U postgres < server/schema.sql
@@ -7,8 +12,10 @@ psql dbname username
 psql -U userName dbName < server/schema.sql
 
 psql postgres -d events_app -f server/schema.sql*/
-CREATE DATABASE events_app;
-\c events_app;
+-- CREATE DATABASE events_app;
+-- \c events_app;
+DROP SCHEMA if exists event_app CASCADE;
+-- CREATE SCHEMA public AUTHORIZATION qbzvgvuvdevbhj;
 
 DROP TABLE if exists users;
 DROP TABLE if exists events;
@@ -27,8 +34,8 @@ CREATE TABLE events (
   dateAndTime VARCHAR(50) NOT NULL,
   category VARCHAR(50) NOT NULL,
   url TEXT NOT NULL,
-  description VARCHAR(100) NOT NULL,
-  location VARCHAR(100) NOT NULL,
+  description VARCHAR(8000) NOT NULL,
+  location VARCHAR(500) NOT NULL,
   UNIQUE (name)
 );
 
@@ -42,7 +49,6 @@ INSERT INTO users (name, password) VALUES ('julia', 'hellowpass');
 INSERT INTO users (name, password) VALUES ('jey', 'mypassword');
 INSERT INTO users (name, password) VALUES ('kevin', 'heypass');
 INSERT INTO users (name, password) VALUES ('li', 'password123');
-INSERT INTO users (name, password) VALUES ('li', 'mypassword123');
 
 
 
