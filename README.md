@@ -36,8 +36,6 @@ this information can be retrieved at a later date.
 - bcrypt 1.0.2
 - jest 
 
-## Development
-
 ### Installing Dependencies
 
 From within the root directory:
