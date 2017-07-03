@@ -68,7 +68,7 @@ app.post('/register', function (req, res) {
       if (users.length) {
         res.end('User already exists!');
       } else {
-        db.query(`INSERT INTO users (name, password, salt) VALUES ('${req.body.name}', '${hash}'), ${salt}`).
+        db.query(`INSERT INTO users (name, password, salt) VALUES ('${req.body.name}', '${hash}', '${salt}')`).
           then((users) => {
             res.end();
             //where we will pass the token back inside res.end
