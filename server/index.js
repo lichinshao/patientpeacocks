@@ -90,8 +90,8 @@ app.post('/login', function (req, res) {
   // console.log(hash);
   db.query(`select salt from users where name = '${req.body.name}'`)
     .then((saltlogin) => {
-      console.log('this is the saltlogin data', saltlogin.salt);
-      var hashlogin = bcrypt.hashSync(req.body.password, saltlogin.salt);
+      console.log('this is the saltlogin data', saltlogin[0].salt);
+      var hashlogin = bcrypt.hashSync(req.body.password, saltlogin[0].salt);
       db.query(`select * from users where name = '${req.body.name}'`).
         then((user) => {
           console.log('this is the user', user);
