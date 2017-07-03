@@ -21,31 +21,33 @@
 
 ## Usage
 
-> Some usage instructions
+- EventWire is devoted to providing users with up to date events from all across the world.
+Merely input your city of choice, search, and define what kind of event you are interested in. 
+EventWire will provide the user with a list of events match their choice! 
+Users can sign up and login and save events they might want to attend. Data is persistant, so
+this information can be retrieved at a later date. 
 
 ## Requirements
 
 - Node 6.4.x
-- Redis 2.6.x
+- React 15.6.1
 - Postgresql 9.1.x
-- etc
-- etc
-
-## Development
+- Express 4.15.3
+- bcrypt 1.0.2
+- jest 
 
 ### Installing Dependencies
 
 From within the root directory:
 
-```sh
+```
 npm install -g bower
 npm install
-bower install
 ```
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_DOC)
+View the project roadmap [here](https://www.lucidchart.com/documents/edit/47bc6b40-5bb8-4987-9c9d-089af916867a?shared=true&#)
 
 
 ## Contributing
