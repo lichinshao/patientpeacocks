@@ -99,13 +99,14 @@ app.post('/login', function (req, res) {
             console.log('user pass', user[0].password, 'input pass', hashlogin);
             if (user[0].password === hashlogin) {
               console.log('this happened');
-              res.write(req.body);
-              res.end('successful login');
+              res.send('successful login');
             }
           } else {
             res.writeHead(403, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ message: 'user doesn\'t exist or password is incorrect' }));
           }
+        }).catch((err) => {
+          console.log('ERRROR at login', err);
         })
     })
 })
