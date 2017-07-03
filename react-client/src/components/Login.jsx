@@ -32,13 +32,12 @@ class Login extends React.Component {
       success: () => {
         window.username = this.UserPass.name;
         console.log('login was successful');
-        browserHistory.push('/');
-        // this.setState({
-        //   redirectToUser: true
-        // })
-        // if(this.state.redirectToUser) {
-          // this.props.router.push('/userpage')
-        // }
+        this.setState({
+          redirectToUser: true
+        })
+        if(this.state.redirectToUser) {
+          this.props.router.push('/userpage')
+        }
       },
       error: function (err) {
         console.log('login failed', err);
