@@ -21,9 +21,9 @@
 
 ## Usage
 
-- EventWire is devoted to providing users with up to date events from all across the world.
+- EventWyre is devoted to providing users with up to date events from all across the world.
 Merely input your city of choice, search, and define what kind of event you are interested in. 
-EventWire will provide the user with a list of events match their choice! 
+EventWyre will provide the user with a list of events match their choice! 
 Users can sign up and login and save events they might want to attend. Data is persistant, so
 this information can be retrieved at a later date. 
 
@@ -41,8 +41,8 @@ this information can be retrieved at a later date.
 From within the root directory:
 
 ```
-npm install -g bower
 npm install
+
 ```
 
 ### Roadmap
