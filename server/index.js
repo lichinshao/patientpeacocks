@@ -90,18 +90,23 @@ app.post('/login', function (req, res) {
   // console.log(hash);
   db.query(`select salt from users where name = '${req.body.name}'`)
     .then((saltlogin) => {
-      var hashlogin = bcrypt.hashSync(req.body.password, saltlogin);
+      console.log('this is the saltlogin data', saltlogin[0].salt);
+      var hashlogin = bcrypt.hashSync(req.body.password, saltlogin[0].salt);
       db.query(`select * from users where name = '${req.body.name}'`).
         then((user) => {
+          console.log('this is the user', user);
           if (user) {
+            console.log('user pass', user[0].password, 'input pass', hashlogin);
             if (user[0].password === hashlogin) {
-              res.write(req.body);
-              res.end('successful login');
+              console.log('this happened');
+              res.send('successful login');
             }
           } else {
             res.writeHead(403, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ message: 'user doesn\'t exist or password is incorrect' }));
           }
+        }).catch((err) => {
+          console.log('ERRROR at login', err);
         })
     })
 })
